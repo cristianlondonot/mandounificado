@@ -20,10 +20,6 @@ const Layouts = () =>{
   const isLoginPage = location.pathname === '/login';
   const [logInUser, setLogInUser] = useState(true)
   /* const location = useLocation();
-
-
-  
-  
   
   console.log(logInUser)
   if (logInUser && isLoginPage) {
