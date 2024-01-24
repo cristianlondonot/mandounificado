@@ -1,17 +1,48 @@
-import React from 'react'
+import React from 'react';
 
-const Pagination = () => {
+const Pagination = ({ currentPage, totalItems, onPageChange }) => {
+  const pageButtons = [];
+  const itemsPerPage = 10; // Asegúrate de definir este valor según tu lógica de paginación
+
+  const handleClick = (page) => {
+    onPageChange(page);
+  };
+
+  // Calcula el número total de páginas
+  const totalPages = Math.ceil(totalItems / itemsPerPage);
+
+  // Muestra hasta 5 botones antes y después de la página actual
+  const startPage = Math.max(1, currentPage - 5);
+  const endPage = Math.min(totalPages, currentPage + 5);
+
+  for (let i = startPage; i <= endPage; i++) {
+    pageButtons.push(
+      <button
+        key={i}
+        className={`join-item btn-sm btn ${i === currentPage ? 'btn-disabled' : ''}`}
+        onClick={() => handleClick(i)}
+      >
+        {i}
+      </button>
+    );
+  }
+
+  // Agrega botones "..." si no se muestran todas las páginas
+  if (startPage > 1) {
+    pageButtons.unshift(<button key="ellipsis-start" className="join-item btn-sm btn btn-disabled">...</button>);
+  }
+  if (endPage < totalPages) {
+    pageButtons.push(<button key="ellipsis-end" className="join-item btn-sm btn btn-disabled">...</button>);
+  }
+
   return (
     <div className='flex justify-center mt-7'>
       <div className="join">
-        <button className="join-item btn-sm btn">1</button>
-        <button className="join-item btn-sm btn">2</button>
-        <button className="join-item btn-sm btn btn-disabled">...</button>
-        <button className="join-item btn-sm btn">99</button>
-        <button className="join-item btn-sm btn">100</button>
+        {pageButtons}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Pagination
+
+export default Pagination;

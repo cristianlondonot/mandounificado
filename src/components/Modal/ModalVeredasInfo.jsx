@@ -4,8 +4,8 @@ import VerdaMapTable from '../TableInfoMap/VerdaMapTable'
 const ModalVeredasInfo = () => {
   return (
     <div>
-      <div className="btn btn-sm" onClick={()=>document.getElementById('my_modal_1').showModal()}>Info</div>
-      <dialog id="my_modal_1" className="modal">
+      <div className="btn btn-sm" onClick={()=>document.getElementById(`my_modal_1`).showModal()}>Info</div>
+      <dialog id={`my_modal_1`} className="modal">
         <div className="modal-box w-11/12 max-w-5xl">
           <h3 className="font-bold text-lg">Información</h3>
           <VerdaMapTable />

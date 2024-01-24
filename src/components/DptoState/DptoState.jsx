@@ -1,14 +1,7 @@
 import React from 'react';
-import { useState } from "react";
-import { SquaresFour } from "phosphor-react";
-import { CheckboxGroup } from "keep-react";
 import CardDptoState from './CardDptoState';
 
 const DptoState = () => {
-  const [selected, setSelected] = useState("");
-  const handleOptionChange = (event) => {
-    setSelected(event.target.value);
-  };
   return (
     <div className="collapse bg-base-200">
       <input type="checkbox" /> 

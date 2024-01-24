@@ -3,7 +3,9 @@ import AddInfoPanel from '../../components/AddInfoPanel/AddInfoPanel'
 
 const AddInfo = () => {
   return (
-    <div><AddInfoPanel /></div>
+    <div>
+      <AddInfoPanel />
+    </div>
   )
 }
 
