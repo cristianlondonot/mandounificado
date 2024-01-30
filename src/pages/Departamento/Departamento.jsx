@@ -2,7 +2,7 @@ import React from 'react';
 import MapSelectDepartment from '../../components/MapSelectDepartment/MapSelectDepartment';
 import { Outlet, useNavigate, useLocation } from 'react-router-dom';
 import MenuLeftDefault from '../../components/MenuLeftDefault/MenuLeftDefault';
-import FilterDpto from '../../components/FilterDpto/FilterDpto';
+//import FilterDpto from '../../components/FilterDpto/FilterDpto';
 import DptoState from '../../components/DptoState/DptoState';
 
 const Departamento = () => {
@@ -18,11 +18,10 @@ const Departamento = () => {
   const tipoDeMapa = 'Departamento';
 
   return (
-    <div className="drawer lg:drawer-open pt-[72.5px]">
+    <div className="drawer lg:drawer-open pt-[168.5px]">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content relative ">
         <div className="p-4 w-full">
-          <FilterDpto />
           <DptoState municipio={departamento} />
         </div>
         <div className="p-4">

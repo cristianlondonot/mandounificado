@@ -35,7 +35,7 @@ const TabTableInfoMap = ({municipio, onMarkerFactor, vereda}) => {
           defaultChecked
         />
         <div role="tabpanel" className="tab-content bg-base-100 border-base-300 rounded-box p-6">
-          <TableInfoMapVereda municipio={municipio} vereda={vereda} titleDb='Social y cultural' departamento={departamento}/>
+          <TableInfoMapVereda municipio={municipio} vereda={vereda} titleDb='Todos los factores' departamento={departamento}/>
         </div>
         
         <input type="radio" name="my_tabs_2" role="tab" className={`tab `} aria-label='Económico'/>

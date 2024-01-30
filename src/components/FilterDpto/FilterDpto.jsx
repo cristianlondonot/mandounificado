@@ -81,7 +81,7 @@ const FilterDpto = ({ selectedDepartamentoProp }) => {
           <h5 className="text-lg font-semibold">Departamento</h5>
         </div>
         <select
-          className="select select-bordered select-sm w-full max-w-md"
+          className="select select-bordered select-sm w-full max-w-md bg-gray-700"
           disabled
           value={selectedDepartamento}
           onChange={handleDepartamentoChange}

@@ -31,7 +31,8 @@ const Layouts = () =>{
 
   return (
     <div className="app">
-      <Header />
+      {isLoginPage ? '' : <Header />}
+      
       <Outlet />
       {isLoginPage ? <FooterLogIn /> : <Footer />}
     </div>

@@ -1,70 +1,8 @@
-import React, {useState, useEffect} from 'react'
-import { Tooltip } from 'react-tooltip'
+import React from 'react'
 
-const AguasNegras = () => {
-
-  const [carenciasPorVeredaBarrio, setCarenciasPorVeredaBarrio] = useState([]);
-  const [promedioTotalCarencias, setPromedioTotalCarencias] = useState(0);
-
-  useEffect(() => {
-    fetch('https://raw.githubusercontent.com/cristianlondonot/mandounificado-spidersoft/main/data-factor.json')
-      .then(response => response.json())
-      .then(data => {
-        const countByVeredaBarrio = data.reduce((count, item) => {
-          const veredaBarrio = item.NOMBRE;
-
-          if (count[veredaBarrio]) {
-            count[veredaBarrio]++;
-          } else {
-            count[veredaBarrio] = 1;
-          }
-
-          return count;
-        }, {});
-
-        // Convertir el objeto a un array de objetos
-        const resultArray = Object.entries(countByVeredaBarrio).map(([veredaBarrio, count]) => ({
-          veredaBarrio,
-          count,
-        }));
-
-        // Asegúrate de que setea correctamente el estado como un array
-        setCarenciasPorVeredaBarrio(resultArray);
-
-        // Calcular la suma total de carencias
-        const totalCount = resultArray.reduce((total, item) => total + item.count, 0);
-
-        // Calcular el promedio total de carencias
-        const promedioTotal = totalCount / resultArray.length;
-
-        // Guardar el promedio total en el estado
-        setPromedioTotalCarencias(promedioTotal);
-      })
-      .catch(error => console.error('Error al cargar los datos:', error));
-  }, []);
-  
-  const cambiarColorSegunCarencias = (nombreVeredaBarrio) => {
-    const lengthFactor = carenciasPorVeredaBarrio.find(item => item.veredaBarrio === nombreVeredaBarrio)?.count || 0;
-  
-    let fillColor = '#656565'; // Color predeterminado
-    if (lengthFactor <= 3) {
-      fillColor = '#387905';
-    } else if (lengthFactor <= 6) {
-      fillColor = '#feba00';
-    } else if (lengthFactor <= 9) {
-      fillColor = '#F2860D';
-    } else if (lengthFactor <= 12) {
-      fillColor = '#fc6107';
-    } else if (lengthFactor < 15) {
-      fillColor = '#FC0707';
-    }
-  
-    return fillColor;
-  };
-
+const AguasNegras = (carenciaColor) => {
   return (
     <div className='w-full min-h-96'>
-      <Tooltip id="my-tooltip"  />
       <svg
         id="uuid-fd4ce565-7aa7-4e99-b8b1-afd163519a7d"
         xmlns="http://www.w3.org/2000/svg"
@@ -77,7 +15,7 @@ const AguasNegras = () => {
       <defs>
         <style>
           {
-            `.uuid-d200dff4-2702-41f9-b0c1-fc72542b5a9a{fill:${cambiarColorSegunCarencias('AGUAS NEGRAS')};fill-rule:evenodd;stroke:#fff;stroke-miterlimit:10;stroke-width:2px;}`
+            `.uuid-d200dff4-2702-41f9-b0c1-fc72542b5a9a{fill:${carenciaColor.carenciaColor};fill-rule:evenodd;stroke:#fff;stroke-miterlimit:10;stroke-width:2px;}`
           }
         </style>
         <filter
