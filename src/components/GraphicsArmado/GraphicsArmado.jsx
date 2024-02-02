@@ -32,7 +32,7 @@ const data = [
 
 const GraphicsArmado = () => {
   return (
-    <div className="h-96 w-full p-10">
+    <div className="h-96 w-full p-2 lg:p-10">
       <div className="filterDate pb-10">
         <RangeDate />
       </div>

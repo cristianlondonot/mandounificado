@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Sogamoso = () => {
+const Sogamoso = (carenciaColor) => {
   
   return (
     <div className='w-full min-h-96'>

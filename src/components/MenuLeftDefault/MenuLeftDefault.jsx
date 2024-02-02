@@ -8,7 +8,7 @@ const MenuLeftDefault = () => {
       <ul className="menu bg-base-200 w-80 min-h-full">
         <li>
           <details>
-            <summary className='btn-green-dark mt-2'><img className='w-4' src="/img/vector/icon-seguridad.svg" alt="" />Seguridad</summary>
+            <summary className='flex items-center content-center text-white hover:bg-blue-800 after:hidden bg-blue-900 mt-2'><img className='w-6' src="/img/vector/icon-seguridad.svg" alt="" />Seguridad</summary>
             <ul>
               <li><a>GAO-ELN (Grupo Armado Organizado)</a></li>
               <li><a>Disidencias</a></li>
@@ -23,7 +23,7 @@ const MenuLeftDefault = () => {
         </li>
         <li>
           <details >
-            <summary className='btn-green-dark mt-2'><img className='w-4' src="/img/vector/icon-social.svg" alt="" />Social y cultural</summary>
+            <summary className='flex items-center content-center text-white hover:bg-blue-800 after:hidden bg-blue-900 mt-2'><img className='w-6' src="/img/vector/icon-social.svg" alt="" />Social y cultural</summary>
             <ul>
               <li><a>Desescolarización</a></li>
               <li><a>Violencia Intrafamiliar</a></li>
@@ -35,7 +35,7 @@ const MenuLeftDefault = () => {
         </li>
         <li>
           <details >
-            <summary className='btn-green-dark mt-2'><img className='w-4' src="/img/vector/icon-infraestructura.svg" alt="" />Infraestructura</summary>
+            <summary className='flex items-center content-center text-white hover:bg-blue-800 after:hidden bg-blue-900 mt-2'><img className='w-6' src="/img/vector/icon-infraestructura.svg" alt="" />Infraestructura</summary>
             <ul>
               <li><a>Carencia de vías</a></li>
               <li><a>Mantenimiento de vías</a></li>
@@ -51,7 +51,7 @@ const MenuLeftDefault = () => {
         </li>
         <li>
           <details >
-            <summary className='btn-green-dark mt-2'><img className='w-4' src="/img/vector/icon-politico institucional.svg" alt="" />Político institucional</summary>
+            <summary className='flex items-center content-center text-white hover:bg-blue-800 after:hidden bg-blue-900 mt-2'><img className='w-6' src="/img/vector/icon-politico institucional.svg" alt="" />Político institucional</summary>
             <ul>
               <li><a>Problemas Limítrofes</a></li>
               <li><a>Carencia Inspector de Policía</a></li>
@@ -61,7 +61,7 @@ const MenuLeftDefault = () => {
         </li>
         <li>
           <details >
-            <summary className='btn-green-dark mt-2'><img className='w-4' src="/img/vector/icon-ambiental.svg" alt="" />Ambiental</summary>
+            <summary className='flex items-center content-center text-white hover:bg-blue-800 after:hidden bg-blue-900 mt-2'><img className='w-6' src="/img/vector/icon-ambiental.svg" alt="" />Ambiental</summary>
             <ul>
               <li><a>Deforestación</a></li>
               <li><a>Contaminación de las fuentes hídricas</a></li>
@@ -75,7 +75,7 @@ const MenuLeftDefault = () => {
         </li>
         <li>
           <details >
-            <summary className='btn-green-dark mt-2'><img className='w-4' src="/img/vector/icon-economico.svg" alt="" />Económico</summary>
+            <summary className='flex items-center content-center text-white hover:bg-blue-800 after:hidden bg-blue-900 mt-2'><img className='w-6' src="/img/vector/icon-economico.svg" alt="" />Económico</summary>
             <ul>
               <li><a>Disminución de Exportaciones</a></li>
               <li><a>Productividad</a></li>

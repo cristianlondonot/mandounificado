@@ -29,10 +29,18 @@ const Pagination = ({ currentPage, totalItems, onPageChange }) => {
 
   // Agrega botones "..." si no se muestran todas las páginas
   if (startPage > 1) {
-    pageButtons.unshift(<button key="ellipsis-start" className="join-item btn-sm btn btn-disabled">...</button>);
+    pageButtons.unshift(
+      <button key="ellipsis-start" className="join-item btn-sm btn btn-disabled" onClick={() => handleClick(startPage - 1)}>
+        ...
+      </button>
+    );
   }
   if (endPage < totalPages) {
-    pageButtons.push(<button key="ellipsis-end" className="join-item btn-sm btn btn-disabled">...</button>);
+    pageButtons.push(
+      <button key="ellipsis-end" className="join-item btn-sm btn btn-disabled" onClick={() => handleClick(endPage + 1)}>
+        ...
+      </button>
+    );
   }
 
   return (
@@ -43,6 +51,5 @@ const Pagination = ({ currentPage, totalItems, onPageChange }) => {
     </div>
   );
 };
-
 
 export default Pagination;

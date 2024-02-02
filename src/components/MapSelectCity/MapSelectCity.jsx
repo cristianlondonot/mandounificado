@@ -24,7 +24,7 @@ import Confines from './Confines/Confines';
 import Contratacion from './Contratacion/Contratacion';
 import Coromoro from './Coromoro/Coromoro';
 import Curiti from './Curiti/Curiti';
-import ElCarmenDelChucuri from './ElCarmenDelChucuri/ElCarmenDelChucuri';
+import ElCarmenDeChucuri from './ElCarmenDeChucuri/ElCarmenDeChucuri';
 import ElFlorian from './ElFlorian/ElFlorian';
 import ElGuacamayo from './ElGuacamayo/ElGuacamayo';
 import ElPlayon from './ElPlayon/ElPlayon';
@@ -67,7 +67,7 @@ const mapComponents = {
   contratacion: Contratacion,
   coromoro: Coromoro,
   curiti: Curiti,
-  'el-carmen-del-chucuri': ElCarmenDelChucuri,
+  'el-carmen-de-chucuri': ElCarmenDeChucuri,
   'el-florian': ElFlorian,
   'el-guacamayo': ElGuacamayo,
   'el-playon': ElPlayon,

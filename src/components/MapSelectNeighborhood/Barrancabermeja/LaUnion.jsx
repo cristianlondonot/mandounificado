@@ -1,6 +1,6 @@
 import React from 'react'
 
-const LaUnion = () => {
+const LaUnion = (carenciaColor) => {
   
   return (
     <div className='w-full min-h-96'>

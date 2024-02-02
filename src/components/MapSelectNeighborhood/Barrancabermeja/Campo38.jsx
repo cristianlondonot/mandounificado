@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Campo38 = () => {
+const Campo38 = (carenciaColor) => {
   
   return (
     <div className='w-full min-h-96'>

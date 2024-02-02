@@ -75,7 +75,7 @@ const FilterDpto = ({ selectedDepartamentoProp }) => {
   }, [selectedMunicipio]);
 
   return (
-    <div className="filters flex gap-4 mb-5 w-full text-green-dark">
+    <div className="filters md:flex gap-4 mb-5 w-full text-green-dark">
       <div className="selectGroup w-full">
         <div className="title">
           <h5 className="text-lg font-semibold">Departamento</h5>

@@ -4,8 +4,9 @@ import { useParams } from 'react-router-dom';
 import MapSelectNeighborhood from '../../components/MapSelectNeighborhood/MapSelectNeighborhood';
 import BreadcrumbsMaps from '../../components/BreadcrumbsMaps/breadcrumbsMaps';
 import TabTableInfoMapVereda from '../../components/TableInfoMapVereda/TabTableInfoMapVereda';
-import InfoVereda from '../../components/InfoVereda/InfoVereda';
+import InfoCity from '../../components/InfoCity/InfoCity';
 import UseCarenciasPorVereda from '../../components/UseCarenciasPorVereda/UseCarenciasPorVereda';
+import './Vereda.sass'
 
 const Vereda = () => {
 
@@ -29,8 +30,8 @@ const Vereda = () => {
           <h2 className='text-3xl font-semibold'>Factor detallado de inestabilidad: <span className={`text-green-50 px-2 py-1 rounded bg-green-800 text-2xl`}> {formatVeredaBarrio} </span></h2>
         </div>
         
-        <div className="p4 w-full min-h-96 relative">
-          <InfoVereda />
+        <div className="p4 w-full vereda-map-sec relative">
+          <InfoCity />
           <div className="map min-h-96">
             <MapSelectNeighborhood 
               municipio={municipio}
@@ -40,14 +41,14 @@ const Vereda = () => {
           </div>
           
         </div>
-        <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">
+        {/* <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">
           Open drawer
-        </label>
+        </label> */}
         <div className="p-5 w-full">
           <TabTableInfoMapVereda municipio={formatMunicipio} vereda={formatVeredaBarrio}/>
         </div>
       </div>
-      <div className="drawer-side">
+      <div className="drawer-side pt-[288.5px] lg:pt-0">
         <MenuLeftDefault />
       </div>
     </div>

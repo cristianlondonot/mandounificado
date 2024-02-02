@@ -20,6 +20,7 @@ const UseCarenciasPorVereda = () => {
           return count;
         }, {});
 
+
         // Convertir el objeto a un array de objetos
         const resultArray = Object.entries(countByVeredaBarrio).map(([veredaBarrio, count]) => ({
           veredaBarrio,
@@ -37,9 +38,13 @@ const UseCarenciasPorVereda = () => {
 
         // Guardar el promedio total en el estado
         setPromedioTotalCarencias(promedioTotal);
+
+        
       })
       .catch(error => console.error('Error al cargar los datos:', error));
   }, []);
+
+
   
   const getColorByCarencias = (nombreVeredaBarrio) => {
     const lengthFactor = carenciasPorVeredaBarrio.find(item => item.veredaBarrio === nombreVeredaBarrio)?.count || 0;
@@ -53,7 +58,7 @@ const UseCarenciasPorVereda = () => {
       fillColor = '#F2860D';
     } else if (lengthFactor <= 12) {
       fillColor = '#fc6107';
-    } else if (lengthFactor < 15) {
+    } else if (lengthFactor >= 15) {
       fillColor = '#FC0707';
     }
   
@@ -61,5 +66,6 @@ const UseCarenciasPorVereda = () => {
   };
   return { getColorByCarencias };
 }
+
 
 export default UseCarenciasPorVereda;

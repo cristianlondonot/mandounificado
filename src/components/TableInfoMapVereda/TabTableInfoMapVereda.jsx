@@ -7,6 +7,7 @@ import TableInfoMapSeguridadVereda from './TableInfoMapSeguridadVereda';
 import TableInfoMapVereda from './TableInfoMapVereda';
 import TableInfoMapSocialVereda from './TableInfoMapSocialVereda';
 import TableInfoMapPoliticoVereda from './TableInfoMapPoliticoVereda';
+import './TableInfoMap.sass'
 
 const TabTableInfoMap = ({municipio, onMarkerFactor, vereda}) => {
 
@@ -22,7 +23,7 @@ const TabTableInfoMap = ({municipio, onMarkerFactor, vereda}) => {
   };
 
   return (
-    <div className={`content w-full  bg-white relative  ${!municipio ? 'hidden' : ''}`}>
+    <div className={`tabsTables w-full  bg-white relative  ${!municipio ? 'hidden' : ''}`}>
       <div role="tablist" className="tabs tabs-lifted">
 
         <input

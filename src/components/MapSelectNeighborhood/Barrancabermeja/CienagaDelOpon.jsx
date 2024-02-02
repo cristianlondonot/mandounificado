@@ -1,6 +1,6 @@
 import React from 'react'
 
-const CienagaDelOpon = () => {
+const CienagaDelOpon = (carenciaColor) => {
   return (
     <div className='w-full min-h-96'>
       <svg
