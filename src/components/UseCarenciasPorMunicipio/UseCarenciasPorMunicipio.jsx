@@ -4,6 +4,7 @@ const UseCarenciasPorMunicipio = ( tipoCarencia ) => {
   const [carenciasPorMunicipio, setCarenciasPorMunicipio] = useState([]);
 
   console.log(tipoCarencia)
+  //funcion filtro
 
   useEffect(() => {
     fetch('https://raw.githubusercontent.com/cristianlondonot/mandounificado-spidersoft/main/data-factor.json')
