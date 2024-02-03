@@ -1,20 +1,21 @@
-import React, {useMemo} from 'react'
+import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Tooltip } from 'react-tooltip'
 import UseCarenciasPorMunicipio from '../../useCarenciasPorMunicipio/useCarenciasPorMunicipio'
 import './Santander.sass'
 
-const Santander = ({departamento}) => {
+const Santander = ({departamento, filterMap}) => {
   
   //const [nombreCiudad, setNombreCiudad] = useState('');
   const navigate = useNavigate();
 
-  const carenciaFilter = 'AMBIENTAL';
+  //const carenciaFilter = 'AMBIENTAL';
 
-  const { getColorByCarencias } = UseCarenciasPorMunicipio( carenciaFilter );
+  //const { getColorByCarencias } = UseCarenciasPorMunicipio( carenciaFilter );
+  const { getColorByCarencias } = UseCarenciasPorMunicipio( filterMap.toUpperCase() );
 
 
-  console.log(carenciaFilter)
+  //console.log(carenciaFilter)
   //console.log(carenciaFilter)
 
   const handleCiudadClick = (event) => {

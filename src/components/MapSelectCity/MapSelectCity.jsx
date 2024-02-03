@@ -89,16 +89,18 @@ const mapComponents = {
   // Agrega más mapeos de municipios a componentes según sea necesario
 };
 
-const MapSelectCity = ({departamento, municipio }) => {
+const MapSelectCity = ({filterMap, departamento, municipio, getColorByCarencias }) => {
 
   const municipioLowerCase = municipio ? municipio.toLowerCase() : '';
 
   const SelectedMapComponent = mapComponents[municipioLowerCase] || null;
 
+  console.log(municipioLowerCase)
+
   return (
     <div className={`w-full h-full`} id='mapCitySelect'>
       {SelectedMapComponent ? (
-        <SelectedMapComponent departamento={departamento} municipio={municipio} />
+        <SelectedMapComponent filterMap={filterMap} departamento={departamento} municipio={municipio} getColorByCarencias={getColorByCarencias}/>
       ) : (
         <p>Mapa no encontrado</p>
       )}

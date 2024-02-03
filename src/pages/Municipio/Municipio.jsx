@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import MapSelectCity from '../../components/MapSelectCity/MapSelectCity';
 import { useParams } from 'react-router-dom';
 import MenuLeftDefault from '../../components/MenuLeftDefault/MenuLeftDefault';
@@ -7,11 +7,20 @@ import InfoCity from '../../components/InfoCity/InfoCity';
 import TabTableInfoMap from '../../components/TableInfoMap/TabTableInfoMap';
 import BreadcrumbsMaps from '../../components/BreadcrumbsMaps/breadcrumbsMaps';
 import './Municipio.sass'
+import UseCarenciasPorVereda from '../../components/UseCarenciasPorVereda/UseCarenciasPorVereda';
 //import FilterDpto from '../../components/FilterDpto/FilterDpto';
 
 const Municipio = () => {
   
   const {departamento, municipio} = useParams()
+
+  const [botonPresionado, setBotonPresionado] = useState('default');
+
+  const handleBotonPresionadoChange = (boton) => {
+    setBotonPresionado(boton);
+  };
+
+  const { getColorByCarencias } = UseCarenciasPorVereda();
 
   return (
     <div className="drawer lg:drawer-open pt-[288.5px] lg:pt-[168.5px]">
@@ -31,7 +40,12 @@ const Municipio = () => {
           <InfoCity municipio={municipio}/>
           
           <div className="map lg:min-h-96">
-            <MapSelectCity departamento={departamento} municipio={municipio} />
+            <MapSelectCity 
+              departamento={departamento} 
+              municipio={municipio} 
+              getColorByCarencias={getColorByCarencias()}
+              filterMap={botonPresionado}
+            />
           </div>
           
         </div>
@@ -40,7 +54,9 @@ const Municipio = () => {
         </div>
       </div>
       <div className="drawer-side pt-[288.5px] z-20 lg:pt-0">
-        <MenuLeftDefault />
+        <MenuLeftDefault 
+          onBotonPresionadoChange={handleBotonPresionadoChange} 
+        />
       </div>
     </div>
   );

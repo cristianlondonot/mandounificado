@@ -6,14 +6,14 @@ const mapComponents = {
   // Agrega más mapeos de municipios a componentes según sea necesario
 };
 
-const MapSelectDepartment = ({ departamento, getColorByCarencias }) => {
+const MapSelectDepartment = ({filterMap, departamento, getColorByCarencias }) => {
 
   const SelectedMapComponent = mapComponents[departamento] || null;
 
   return (
     <div className={`w-full h-full `} id='mapCitySelect'>
       {SelectedMapComponent ? (
-        <SelectedMapComponent departamento={departamento} getColorByCarencias={getColorByCarencias}/>
+        <SelectedMapComponent filterMap={filterMap} departamento={departamento} getColorByCarencias={getColorByCarencias}/>
       ) : (
         <p>Mapa no encontrado</p>
       )}

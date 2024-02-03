@@ -4,14 +4,17 @@ import { Tooltip } from 'react-tooltip'
 import '../../../App.sass'
 import UseCarenciasPorVereda from '../../UseCarenciasPorVereda/UseCarenciasPorVereda'
 
-const Barrancabermeja = ({departamento, municipio}) => {
+const Barrancabermeja = ({departamento, municipio, filterMap}) => {
 
   //const [nombreVeredaBarrio, setNombreVeredaBarrio] = useState('');
   const navigate = useNavigate();
 
-  //esta función es la que asigna el color según la cantidad de carencias que tiene la vereda o el barrio
-  const { getColorByCarencias } = UseCarenciasPorVereda();
+  //console.log(filterMap)
 
+  //esta función es la que asigna el color según la cantidad de carencias que tiene la vereda o el barrio
+  const { getColorByCarencias } = UseCarenciasPorVereda( filterMap.toUpperCase() );
+
+  
   //Esta función abre la vereda o barrio seleccionado. Toma los datos de data-name-url y los ingresa a navigate 
   const handleNeighborhoodClick = (event) => {
     const { dataset } = event.target;
