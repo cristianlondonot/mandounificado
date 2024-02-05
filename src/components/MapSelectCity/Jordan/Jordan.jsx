@@ -4,8 +4,6 @@ import { Tooltip } from 'react-tooltip'
 import '../../../App.sass'
 import UseCarenciasPorVereda from '../../UseCarenciasPorVereda/UseCarenciasPorVereda'
 
-
-
 const Jordan = ({departamento, municipio}) => {
   const navigate = useNavigate();
 
