@@ -4,7 +4,7 @@ import '../../../App.sass'
 import UseCarenciasPorVereda from '../../UseCarenciasPorVereda/UseCarenciasPorVereda'
 
 
-const Cerritos = ({departamento, municipio}) => {
+const Cerrito = ({departamento, municipio}) => {
   const navigate = useNavigate();
 
   //esta función es la que asigna el color según la cantidad de carencias que tiene la vereda o el barrio
@@ -129,4 +129,4 @@ const Cerritos = ({departamento, municipio}) => {
   )
 }
 
-export default Cerritos
+export default Cerrito
