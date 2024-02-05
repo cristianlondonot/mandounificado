@@ -114,7 +114,7 @@ const MenuLeftDefault = ({onBotonPresionadoChange}) => {
         </li>
         <li>
           <details >
-            <summary className={`group-one flex items-center content-center text-white hover:bg-blue-800 after:hidden bg-blue-900 mt-2 ${estadoBoton === 'infraestructura' ? 'activo' : ''}`} onClick={() => handleBotonClick('infraestructura')}><img className='w-6' src="/img/vector/icon-infraestructura.svg" alt="" />Sostenibilidad</summary>
+            <summary className={`group-one flex items-center content-center text-white hover:bg-blue-800 after:hidden bg-blue-900 mt-2 ${estadoBoton === 'infraestructura' ? 'activo' : ''}`} onClick={() => handleBotonClick('INFRAESTRUCTURA')}><img className='w-6' src="/img/vector/icon-infraestructura.svg" alt="" />Sostenibilidad</summary>
             <ul>
               <li>
                 <h2 className="menu-title">Agricultura y desarrollo rural</h2>

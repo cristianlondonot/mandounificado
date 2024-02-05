@@ -24,7 +24,6 @@ import Confines from './Confines/Confines';
 import Contratacion from './Contratacion/Contratacion';
 import Coromoro from './Coromoro/Coromoro';
 import Curiti from './Curiti/Curiti';
-import ElCarmenDeChucuri from './ElCarmenDeChucuri/ElCarmenDeChucuri';
 import ElFlorian from './ElFlorian/ElFlorian';
 import ElGuacamayo from './ElGuacamayo/ElGuacamayo';
 import ElPlayon from './ElPlayon/ElPlayon';
@@ -41,6 +40,7 @@ import Guepsa from './Guepsa/Guepsa';
 import Hato from './Hato/Hato';
 import JesusMaria from './JesusMaria/JesusMaria';
 import Jordan from './Jordan/Jordan';
+import CarmenDelChucuri from './CarmenDelChucuri/CarmenDelChucuri';
 
 const mapComponents = {
   bucaramanga: Bucaramanga,
@@ -67,7 +67,7 @@ const mapComponents = {
   contratacion: Contratacion,
   coromoro: Coromoro,
   curiti: Curiti,
-  'el-carmen-de-chucuri': ElCarmenDeChucuri,
+  'carmen-del-chucuri': CarmenDelChucuri,
   'el-florian': ElFlorian,
   'el-guacamayo': ElGuacamayo,
   'el-playon': ElPlayon,

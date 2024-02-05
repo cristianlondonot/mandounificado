@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import dataFactor from '../../../data-factor.json';  // Asegúrate de proporcionar la ruta correcta al archivo JSON
 import Pagination from '../Pagination/Pagination';
 import SearchInputTable from '../SearchInputTable/SearchInputTable';
-import './TableInfoMap.sass'
+import './TableInfoMapVereda.sass'
 import { Tooltip } from 'react-tooltip';
 import Select from 'react-select';
 import makeAnimated from 'react-select/animated';

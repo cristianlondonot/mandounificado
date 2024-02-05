@@ -35,6 +35,8 @@ const UseCarenciasPorMunicipio = ( tipoCarencia ) => {
         }));
   
         setCarenciasPorMunicipio(resultArray);
+
+        console.log(resultArray)
       })
       .catch(error => console.error('Error al cargar los datos:', error));
   }, [tipoCarencia]);
@@ -53,7 +55,7 @@ const UseCarenciasPorMunicipio = ( tipoCarencia ) => {
       fillColor = '#F2860D';
     } else if (lengthFactor <= 150) {
       fillColor = '#fc6107';
-    } else if (lengthFactor >= 200) {
+    } else if (lengthFactor >= 151) {
       fillColor = '#FC0707';
     }
 

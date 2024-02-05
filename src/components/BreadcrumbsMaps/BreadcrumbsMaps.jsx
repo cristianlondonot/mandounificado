@@ -7,6 +7,7 @@ const BreadcrumbsMaps = ({departamento, municipio, vereda}) => {
   const formatMunicipio = municipio.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
   const formatVereda = vereda.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
   
+  console.log(municipio)
   return (
     <div className='w-full'>
       <div className="text-sm breadcrumbs p-0">

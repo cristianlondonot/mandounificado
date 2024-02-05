@@ -52,7 +52,7 @@ const UseCarenciasPorVereda = ( tipoCarencia ) => {
       fillColor = '#F2860D';
     } else if (lengthFactor <= 12) {
       fillColor = '#fc6107';
-    } else if (lengthFactor >= 15) {
+    } else if (lengthFactor >= 13) {
       fillColor = '#FC0707';
     }
   

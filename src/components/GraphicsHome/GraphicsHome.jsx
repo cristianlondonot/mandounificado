@@ -9,7 +9,7 @@ import RangeDate from '../RangeDate/RangeDate'
 
 const GraphicsHome = () => {
   return (
-    <div className='w-full h-full p-5 lg:p-20 pt-[238.5px] lg:pt-[168.5px] GraphicsHome'>
+    <div className='w-full h-full p-5 lg:p-20 pt-[72.5px] lg:pt-[82.5px] GraphicsHome'>
       <div className="lg:flex justify-between">
         <div className="title mb-8 lg:mb-12 flex items-center gap-5">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-10 h-10">

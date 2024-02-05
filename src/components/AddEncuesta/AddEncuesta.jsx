@@ -70,7 +70,7 @@ const AddEncuesta = () => {
         </div>
       </div>
       <div className="btn-action flex justify-center">
-        <button className="btn  bg-green-800 hover:bg-green-700 w-96 mt-9">
+        <button className="btn  bg-green-800 hover:bg-green-700 text-slate-50 w-96 mt-9">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
