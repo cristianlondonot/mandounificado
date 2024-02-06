@@ -24,7 +24,6 @@ import Confines from './Confines/Confines';
 import Contratacion from './Contratacion/Contratacion';
 import Coromoro from './Coromoro/Coromoro';
 import Curiti from './Curiti/Curiti';
-import ElCarmenDelChucuri from './ElCarmenDelChucuri/ElCarmenDelChucuri';
 import ElFlorian from './ElFlorian/ElFlorian';
 import ElGuacamayo from './ElGuacamayo/ElGuacamayo';
 import ElPlayon from './ElPlayon/ElPlayon';
@@ -41,6 +40,50 @@ import Guepsa from './Guepsa/Guepsa';
 import Hato from './Hato/Hato';
 import JesusMaria from './JesusMaria/JesusMaria';
 import Jordan from './Jordan/Jordan';
+import CarmenDelChucuri from './CarmenDelChucuri/CarmenDelChucuri';
+import Landazuri from './Landazuri/Landazuri';
+import LaPaz from './LaPaz/LaPaz';
+import LaBelleza from './LaBelleza/LaBelleza';
+import Lebrija from './Lebrija/Lebrija';
+import LosSantos from './LosSantos/LosSantos';
+import Macaravita from './Macaravita/Macaravita';
+import Malaga from './Malaga/Malaga';
+import Matanza from './Matanza/Matanza';
+import Mogotes from './Mogotes/Mogotes';
+import Molagavita from './Molagavita/Molagavita';
+import Ocamonte from './Ocamonte/Ocamonte';
+import Oiba from './Oiba/Oiba';
+import Onza from './Onzaga/Onzaga';
+import Palmar from './Palmar/Palmar';
+import PalmasDeSocorro from './PalmasDeSocorro/PalmasDeSocorro';
+import Paramo from './Paramo/Paramo';
+import Piedecuesta from './Piedecuesta/Piedecuesta';
+import Pinchote from './Pinchote/Pinchote';
+import PuenteNacional from './PuenteNacional/PuenteNacional';
+import PuertoParra from './PuertoParra/PuertoParra';
+import PuertoWilches from './PuertoWilches/PuertoWilches';
+import Rionegro from './Rionegro/Rionegro';
+import SabanaDeTorres from './SabanaDeTorres/SabanaDeTorres';
+import SanAndres from './SanAndres/SanAndres';
+import SanBenito from './SanBenito/SanBenito';
+import Sangil from './SanGil/Sangil';
+import SanJoaquin from './SanJoaquin/SanJoaquin';
+import SanJoseDeMiranda from './SanJoseDeMiranda/SanJoseDeMiranda';
+import SanMiguel from './SanMiguel/SanMiguel';
+import SantaBarbara from './SantaBarbara/SantaBarbara';
+import SantaHelenaDelOpon from './SantaHelenaDelOpon/SantaHelenaDelOpon';
+import SanVicenteDeChucuri from './SanVicenteDeChucuri/SanVicenteDeChucuri';
+import Simacota from './Simacota/Simacota';
+import Socorro from './Socorro/Socorro';
+import Suaita from './Suaita/Suaita';
+import Sucre from './Sucre/Sucre';
+import Surata from './Surata/Surata';
+import Tona from './Tona/Tona';
+import ValleDeSanJose from './ValleDeSanJose/ValleDeSanJose';
+import Velez from './Velez/Velez';
+import Vetas from './Vetas/Vetas';
+import Villanueva from './Villanueva/Villanueva';
+import Zapatoca from './Zapatoca/Zapatoca';
 
 const mapComponents = {
   bucaramanga: Bucaramanga,
@@ -67,7 +110,7 @@ const mapComponents = {
   contratacion: Contratacion,
   coromoro: Coromoro,
   curiti: Curiti,
-  'el-carmen-del-chucuri': ElCarmenDelChucuri,
+  'carmen-del-chucuri': CarmenDelChucuri,
   'el-florian': ElFlorian,
   'el-guacamayo': ElGuacamayo,
   'el-playon': ElPlayon,
@@ -83,22 +126,68 @@ const mapComponents = {
   guepsa: Guepsa,
   hato: Hato,
   'jesus-maria': JesusMaria,
-  jordan: Jordan
+  jordan: Jordan,
+  'la-belleza': LaBelleza,
+  landazuri: Landazuri,
+  'la-paz': LaPaz,
+  lebrija: Lebrija,
+  'los-Santos': LosSantos,
+  macaravita: Macaravita,
+  malaga: Malaga,
+  matanza: Matanza,
+  mogotes: Mogotes,
+  molagavita: Molagavita,
+  Ocamonte: Ocamonte,
+  oiba: Oiba,
+  Onzaga: Onza,
+  palmar: Palmar,
+  'palmas-de-socorro': PalmasDeSocorro,
+  paramo: Paramo,
+  piedecuesta: Piedecuesta,
+  pinchote: Pinchote,
+  'puente-nacional': PuenteNacional,
+  'puerto-parra': PuertoParra,
+  'puerto-wilches': PuertoWilches,
+  rionegro: Rionegro,
+  'sabana-de-torres': SabanaDeTorres,
+  'san-andres': SanAndres,
+  'san-benito': SanBenito,
+  'san-gil': Sangil,
+  'san-joaquin': SanJoaquin,
+  'san-jose-de-miranda': SanJoseDeMiranda,
+  'san-miguel': SanMiguel,
+  'santa-barbara': SantaBarbara,
+  'santa-helena-del-opon': SantaHelenaDelOpon,
+  'san-vicente-de-chucuri': SanVicenteDeChucuri,
+  simacota: Simacota,
+  socorro: Socorro,
+  suaita: Suaita,
+  sucre: Sucre,
+  surata: Surata,
+  tona: Tona,
+  'valle-de-san-jose': ValleDeSanJose,
+  velez: Velez,
+  vetas: Vetas,
+  villanueva: Villanueva,
+  zapatoca: Zapatoca
+
 
 
   // Agrega más mapeos de municipios a componentes según sea necesario
 };
 
-const MapSelectCity = ({departamento, municipio }) => {
+const MapSelectCity = ({filterMap, departamento, municipio, getColorByCarencias }) => {
 
   const municipioLowerCase = municipio ? municipio.toLowerCase() : '';
 
   const SelectedMapComponent = mapComponents[municipioLowerCase] || null;
 
+  console.log(municipioLowerCase)
+
   return (
     <div className={`w-full h-full`} id='mapCitySelect'>
       {SelectedMapComponent ? (
-        <SelectedMapComponent departamento={departamento} municipio={municipio} />
+        <SelectedMapComponent filterMap={filterMap} departamento={departamento} municipio={municipio} getColorByCarencias={getColorByCarencias}/>
       ) : (
         <p>Mapa no encontrado</p>
       )}

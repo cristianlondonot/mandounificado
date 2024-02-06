@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Sabalo = () => {
+const Sabalo = (carenciaColor) => {
   
   return (
     <div className='w-full min-h-96'>

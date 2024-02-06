@@ -38,9 +38,20 @@ const TableInfoMapAmbiental = ({departamento, municipio, titleDb, onMarkerClick}
       item.FACTOR_SIMPLIFICADO.toLowerCase() === 'ambiental'
   );
 
+  // Crear un objeto para almacenar la cantidad de cada carencia en Barrancabermeja
+  const carenciasTotales = filteredData
+  .filter(item => item.MUNICIPIO.toUpperCase() === municipioUpper) // Filtrar solo los datos de Barrancabermeja
+  .reduce((accumulator, item) => {
+    const carencia = item.CARENCIA; // Solo necesitas la carencia aquí
+    accumulator[carencia] = (accumulator[carencia] || 0) + 1;
+    return accumulator;
+  }, {});
+
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = filteredData.slice(indexOfFirstItem, indexOfLastItem);
+  const currentItems = Object.entries(carenciasTotales).slice(indexOfFirstItem, indexOfLastItem);
+
+  const uniqueCarencias = [...new Set(filteredData.map(item => item.CARENCIA))];
 
   const handlePageChange = (page) => {
     setCurrentPage(page);
@@ -113,17 +124,27 @@ const TableInfoMapAmbiental = ({departamento, municipio, titleDb, onMarkerClick}
             </tr>
           </thead>
           <tbody>
-            {currentItems.map((item, index) => (
+            {currentItems.map(([carencia, cantidad], index) => {
+              // Encuentra el objeto correspondiente en dataFactor para asegurarte de que es del municipio correcto
+              const item = dataFactor.find(
+                (dataItem) => dataItem.CARENCIA === carencia && dataItem.MUNICIPIO.toUpperCase() === municipioUpper
+              );
+
+              if (!item) {
+                console.error(`No se encontró el objeto correspondiente para la carencia: ${carencia} en el municipio: ${municipioUpper}`);
+                return null; // O manejar este caso de alguna otra manera
+              }
+
+              return (
               <tr key={index}>
                 <th>
                   <label>
                     <input 
                       type="checkbox"
                       className="checkbox"
-                      id={`viewMarker-${index}-${item.FACTOR_SIMPLIFICADO}`}
-                      name={`viewMarker-${index}-${item.FACTOR_SIMPLIFICADO}`}
-                      onChange={(e) =>
-                      handleButtonClick({ lat: Number(item.LATITUD), lng: Number(item.LONGITUD) }, e.target.checked)}
+                      id={`viewMarker-${index}-${carencia}`}
+                      name={`viewMarker-${index}-${carencia}`}
+                      
                     />
                   </label>
                 </th>
@@ -136,17 +157,15 @@ const TableInfoMapAmbiental = ({departamento, municipio, titleDb, onMarkerClick}
                       </div>
                     </div>
                     <div>
-                      <div className="font-bold">{item.CARENCIA.charAt(0).toUpperCase() + item.CARENCIA.slice(1).toLowerCase()} | {item.NOMBRE_GRUPO_ARMADO.charAt(0).toUpperCase() + item.NOMBRE_GRUPO_ARMADO.slice(1).toLowerCase()}</div>
+                      <div className="font-bold">{carencia.charAt(0).toUpperCase() + carencia.slice(1).toLowerCase()} | {item.NOMBRE_GRUPO_ARMADO.charAt(0).toUpperCase() + item.NOMBRE_GRUPO_ARMADO.slice(1).toLowerCase()}</div>
                       <div className="text-sm opacity-50">{item.GESTION.charAt(0).toUpperCase() + item.GESTION.slice(1).toLowerCase()}</div>
                     </div>
                   </div>
                 </td>
                 <td className='text-center'>
-                  1
+                  {cantidad}
                 </td>
                 <td>
-                  {/* Información de ubicación */}
-                  {`${item.VEREDA_BARRIO.charAt(0).toUpperCase() + item.VEREDA_BARRIO.slice(1).toLowerCase()}: ${item.NOMBRE.charAt(0).toUpperCase() + item.NOMBRE.slice(1).toLowerCase()}`} <br />
                   <span className="badge badge-ghost badge-sm">{`${item.DEPARTAMENTO.charAt(0).toUpperCase() + item.DEPARTAMENTO.slice(1).toLowerCase()}, ${item.MUNICIPIO.charAt(0).toUpperCase() + item.MUNICIPIO.slice(1).toLowerCase()}`}</span>
                 </td>
                 <td>
@@ -180,14 +199,15 @@ const TableInfoMapAmbiental = ({departamento, municipio, titleDb, onMarkerClick}
                   </div>
                 </td>
               </tr>
-            ))}
+              );
+            })}
           </tbody>
 
         </table>
 
         <Pagination
           currentPage={currentPage}
-          totalItems={filteredData.length}
+          totalItems={uniqueCarencias.length}
           onPageChange={handlePageChange}
         />
       </div>

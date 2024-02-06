@@ -4,7 +4,7 @@ import { Tooltip } from 'react-tooltip'
 import '../../../App.sass'
 import UseCarenciasPorVereda from '../../UseCarenciasPorVereda/UseCarenciasPorVereda'
 
-const Guapota = (departamento, municipio) => {
+const Guapota = ({departamento, municipio}) => {
   const navigate = useNavigate();
 
   //esta función es la que asigna el color según la cantidad de carencias que tiene la vereda o el barrio

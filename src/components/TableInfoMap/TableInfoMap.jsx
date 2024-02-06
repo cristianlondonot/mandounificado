@@ -1,30 +1,29 @@
-import React, {useState} from 'react';
-import dataFactor from '../../../data-factor.json';  // Asegúrate de proporcionar la ruta correcta al archivo JSON
+import React, { useState } from 'react';
+import dataFactor from '../../../data-factor.json';
 import Pagination from '../Pagination/Pagination';
 import SearchInputTable from '../SearchInputTable/SearchInputTable';
-import './TableInfoMap.sass'
+import './TableInfoMap.sass';
 import { Tooltip } from 'react-tooltip';
 import Select from 'react-select';
 import makeAnimated from 'react-select/animated';
 
 const TableInfoMap = ({ departamento, municipio, titleDb, onMarkerClick }) => {
-  
   const departamentoUpper = departamento.toUpperCase();
   const municipioUpper = municipio.toUpperCase();
-  
+
   const [currentPage, setCurrentPage] = useState(1);
   const [searchTerm, setSearchTerm] = useState('');
   const itemsPerPage = 10;
 
   const handleSearch = (term) => {
     setSearchTerm(term);
-    setCurrentPage(1); // Resetear la página a 1 cuando se realiza una nueva búsqueda
+    setCurrentPage(1);
   };
 
   const filteredData = dataFactor.filter(
     (item) =>
       item.DEPARTAMENTO === departamentoUpper &&
-      item.MUNICIPIO === municipioUpper &&
+      item.MUNICIPIO === municipioUpper &&  // Asegurarse de que los nombres coincidan exactamente (mayúsculas/minúsculas)
       (searchTerm.trim() === '' ||
         item.CARENCIA.toLowerCase().includes(searchTerm.toLowerCase()) ||
         item.FACTOR_SIMPLIFICADO.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -36,12 +35,23 @@ const TableInfoMap = ({ departamento, municipio, titleDb, onMarkerClick }) => {
         item.ACTOR_A_EJECUTAR.toLowerCase().includes(searchTerm.toLowerCase()))
   );
 
+  // Crear un objeto para almacenar la cantidad de cada carencia en Barrancabermeja
+  const carenciasTotales = filteredData
+  .filter(item => item.MUNICIPIO.toUpperCase() === municipioUpper) // Filtrar solo los datos de Barrancabermeja
+  .reduce((accumulator, item) => {
+    const carencia = item.CARENCIA; // Solo necesitas la carencia aquí
+    accumulator[carencia] = (accumulator[carencia] || 0) + 1;
+    return accumulator;
+  }, {});
+
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = filteredData.slice(indexOfFirstItem, indexOfLastItem);
+  const currentItems = Object.entries(carenciasTotales).slice(indexOfFirstItem, indexOfLastItem);
+
+  const uniqueCarencias = [...new Set(filteredData.map(item => item.CARENCIA))];
 
   const handlePageChange = (page) => {
-    setCurrentPage(page);
+  setCurrentPage(page);
   };
 
   const [checkedItems, setCheckedItems] = useState(Array(dataFactor.length).fill(false));
@@ -76,7 +86,6 @@ const TableInfoMap = ({ departamento, municipio, titleDb, onMarkerClick }) => {
     console.log('Selected Coordinates:', updatedCoordinates);
   };
 
-
   const dataSelectActor = [
     { value: 'Gobernador', label: 'Gobernador' },
     { value: 'Alcaldía', label: 'Alcaldía' },
@@ -85,17 +94,17 @@ const TableInfoMap = ({ departamento, municipio, titleDb, onMarkerClick }) => {
     { value: 'Movistar', label: 'Movistar' },
     { value: 'Privado1', label: 'Privado1' },
     { value: 'Privado2', label: 'Privado2' },
-  ]
+  ];
 
   const animatedComponents = makeAnimated();
-  
+
   return (
     <div className="content w-full">
       <div className="overflow-x-auto h-full">
         <div className="title">
           <h2 className='text-xl underline font-bold mb-10'>{municipio} | {titleDb}</h2>
         </div>
-        <SearchInputTable onSearch={handleSearch}/>
+        <SearchInputTable onSearch={handleSearch} />
         <table className="table">
           <thead>
             <tr>
@@ -107,22 +116,32 @@ const TableInfoMap = ({ departamento, municipio, titleDb, onMarkerClick }) => {
               <th>Carencia o factor</th>
               <th className='text-center'>Unds</th>
               <th>Ubicación</th>
+              <th>Acción</th>
               <th>Actor a suplir carencia</th>
-              {/* <th></th> */}
             </tr>
           </thead>
           <tbody>
-            {currentItems.map((item, index) => (
+            {currentItems.map(([carencia, cantidad], index) => {
+              // Encuentra el objeto correspondiente en dataFactor para asegurarte de que es del municipio correcto
+              const item = dataFactor.find(
+                (dataItem) => dataItem.CARENCIA === carencia && dataItem.MUNICIPIO.toUpperCase() === municipioUpper
+              );
+
+              if (!item) {
+                console.error(`No se encontró el objeto correspondiente para la carencia: ${carencia} en el municipio: ${municipioUpper}`);
+                return null; // O manejar este caso de alguna otra manera
+              }
+
+              return (
               <tr key={index}>
                 <th>
                   <label>
                     <input 
                       type="checkbox"
                       className="checkbox"
-                      id={`viewMarker-${index}-${item.FACTOR_SIMPLIFICADO}`}
-                      name={`viewMarker-${index}-${item.FACTOR_SIMPLIFICADO}`}
-                      onChange={(e) =>
-                      handleButtonClick({ lat: Number(item.LATITUD), lng: Number(item.LONGITUD) }, e.target.checked)}
+                      id={`viewMarker-${index}-${carencia}`}
+                      name={`viewMarker-${index}-${carencia}`}
+                      
                     />
                   </label>
                 </th>
@@ -130,23 +149,30 @@ const TableInfoMap = ({ departamento, municipio, titleDb, onMarkerClick }) => {
                   <div className="flex items-center gap-3">
                     <div className="avatar">
                       {/* Icono según el tipo de factor */}
-                      <div className={`mask mask-squircle w-12 h-12 bg-slate-600 p-3`}>
+                      <div className={`mask mask-squircle w-12 h-12 bg-slate-600 p-2`}>
                         <img src={`/img/vector/icon-${item.FACTOR_SIMPLIFICADO.toLowerCase()}.svg`} alt="Avatar Tailwind CSS Component" />
                       </div>
                     </div>
                     <div>
-                      <div className="font-bold">{item.CARENCIA.charAt(0).toUpperCase() + item.CARENCIA.slice(1).toLowerCase()} | {item.NOMBRE_GRUPO_ARMADO.charAt(0).toUpperCase() + item.NOMBRE_GRUPO_ARMADO.slice(1).toLowerCase()} </div>
+                      <div className="font-bold">{carencia.charAt(0).toUpperCase() + carencia.slice(1).toLowerCase()} | {item.NOMBRE_GRUPO_ARMADO.charAt(0).toUpperCase() + item.NOMBRE_GRUPO_ARMADO.slice(1).toLowerCase()}</div>
                       <div className="text-sm opacity-50">{item.GESTION.charAt(0).toUpperCase() + item.GESTION.slice(1).toLowerCase()}</div>
                     </div>
                   </div>
                 </td>
                 <td className='text-center'>
-                  1
+                  {cantidad}
                 </td>
                 <td>
-                  {/* Información de ubicación */}
-                  {`${item.VEREDA_BARRIO.charAt(0).toUpperCase() + item.VEREDA_BARRIO.slice(1).toLowerCase()}: ${item.NOMBRE.charAt(0).toUpperCase() + item.NOMBRE.slice(1).toLowerCase()}`} <br />
                   <span className="badge badge-ghost badge-sm">{`${item.DEPARTAMENTO.charAt(0).toUpperCase() + item.DEPARTAMENTO.slice(1).toLowerCase()}, ${item.MUNICIPIO.charAt(0).toUpperCase() + item.MUNICIPIO.slice(1).toLowerCase()}`}</span>
+                </td>
+                <td>
+                  {item.FACTOR_SIMPLIFICADO.toLowerCase() === 'seguridad' && (
+                    <a href="https://experience.arcgis.com/experience/e343b19a00544755a4b422a6323085d3/" className='btn' target="_blank">
+                      <svg className="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" strokeLinecap="round" strokeWidth="2" d="M4.4 7.7c2 .5 2.4 2.8 3.2 3.8 1 1.4 2 1.3 3.2 2.7 1.8 2.3 1.3 5.7 1.3 6.7M20 15h-1a4 4 0 0 0-4 4v1M8.6 4c0 .8.1 1.9 1.5 2.6 1.4.7 3 .3 3 2.3 0 .3 0 2 1.9 2 2 0 2-1.7 2-2 0-.6.5-.9 1.2-.9H20m1 4a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+                      </svg>
+                    </a>
+                  )}
                 </td>
                 <td>
                   <div className="selectActorEject flex gap-2 items-center">
@@ -176,46 +202,22 @@ const TableInfoMap = ({ departamento, municipio, titleDb, onMarkerClick }) => {
                       placeholder='Seleccione uno o varios actores...'
                       components={animatedComponents}
                     />
-                    {/* <select className="select select-bordered w-full max-w-xs" 
-                      disabled={!checkedItems[index]}
-                      defaultValue={item.ACTOR_A_EJECUTAR.charAt(0).toUpperCase() + item.ACTOR_A_EJECUTAR.slice(1).toLowerCase()}>
-                      <option value={item.ACTOR_A_EJECUTAR.charAt(0).toUpperCase() + item.ACTOR_A_EJECUTAR.slice(1).toLowerCase()}>{item.ACTOR_A_EJECUTAR.charAt(0).toUpperCase() + item.ACTOR_A_EJECUTAR.slice(1).toLowerCase()}</option>
-                      <option>Gobierno</option>
-                      <option>Alcaldía</option>
-                    </select> */}
                   </div>
                 </td>
-                {/* <th>
-                  <div className="btnAction flex gap-2">
-                    <Tooltip id={`tooltipBtnAction-${index}-${item.FACTOR_SIMPLIFICADO}`}/>
-                    <label htmlFor={`viewMarker-${index}-${item.FACTOR_SIMPLIFICADO}`} className="btn font-normal" data-tooltip-id={`tooltipBtnAction-${index}-${item.FACTOR_SIMPLIFICADO}`} data-tooltip-content='Ver en mapa satelital' >
-                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="m6.115 5.19.319 1.913A6 6 0 0 0 8.11 10.36L9.75 12l-.387.775c-.217.433-.132.956.21 1.298l1.348 1.348c.21.21.329.497.329.795v1.089c0 .426.24.815.622 1.006l.153.076c.433.217.956.132 1.298-.21l.723-.723a8.7 8.7 0 0 0 2.288-4.042 1.087 1.087 0 0 0-.358-1.099l-1.33-1.108c-.251-.21-.582-.299-.905-.245l-1.17.195a1.125 1.125 0 0 1-.98-.314l-.295-.295a1.125 1.125 0 0 1 0-1.591l.13-.132a1.125 1.125 0 0 1 1.3-.21l.603.302a.809.809 0 0 0 1.086-1.086L14.25 7.5l1.256-.837a4.5 4.5 0 0 0 1.528-1.732l.146-.292M6.115 5.19A9 9 0 1 0 17.18 4.64M6.115 5.19A8.965 8.965 0 0 1 12 3c1.929 0 3.716.607 5.18 1.64" />
-                      </svg>
-                    </label>
-                    <div className="btn" data-tooltip-id={`tooltipBtnAction-${index}-${item.FACTOR_SIMPLIFICADO}`} data-tooltip-content='Descargar último informe'>
-                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="m9 13.5 3 3m0 0 3-3m-3 3v-6m1.06-4.19-2.12-2.12a1.5 1.5 0 0 0-1.061-.44H4.5A2.25 2.25 0 0 0 2.25 6v12a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18V9a2.25 2.25 0 0 0-2.25-2.25h-5.379a1.5 1.5 0 0 1-1.06-.44Z" />
-                      </svg>
-                    </div>
-                  </div>
-                </th> */}
               </tr>
-            ))}
+              );
+            })}
           </tbody>
-
         </table>
 
         <Pagination
           currentPage={currentPage}
-          totalItems={filteredData.length}
+          totalItems={uniqueCarencias.length}
           onPageChange={handlePageChange}
         />
       </div>
     </div>
   );
-
-  
 }
 
 export default TableInfoMap;

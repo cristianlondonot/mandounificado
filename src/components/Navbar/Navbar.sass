@@ -1,6 +1,13 @@
 @import '../../App.sass'
 
 .navbar
+  .search-input
+    @media screen and ( max-width: 979px )
+      width: 100%
+  .navbar-end
+    .item-primary
+      @media screen and ( max-width: 979px )
+        display: none
   li
     svg
       stroke: $white
@@ -14,3 +21,4 @@
   .menu
     svg
       stroke: $black
+  

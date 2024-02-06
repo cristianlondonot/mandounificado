@@ -7,9 +7,6 @@ const Header = () => {
   return (
     <header>
       <Navbar />
-      <div className="p-2 w-full filterDpto">
-        <FilterDpto />
-      </div>
     </header>
   )
 }

@@ -1,14 +1,21 @@
 import React, { useState, useEffect } from 'react';
 
-const UseCarenciasPorVereda = () => {
+const UseCarenciasPorVereda = ( tipoCarencia ) => {
   const [carenciasPorVeredaBarrio, setCarenciasPorVeredaBarrio] = useState([]);
-  const [promedioTotalCarencias, setPromedioTotalCarencias] = useState(0);
 
+  console.log(tipoCarencia)
+  
   useEffect(() => {
     fetch('https://raw.githubusercontent.com/cristianlondonot/mandounificado-spidersoft/main/data-factor.json')
       .then(response => response.json())
       .then(data => {
-        const countByVeredaBarrio = data.reduce((count, item) => {
+        let filteredData = data;
+
+        if (tipoCarencia && tipoCarencia !== 'DEFAULT') {
+          filteredData = data.filter(item => item.FACTOR_SIMPLIFICADO === tipoCarencia);
+        }
+
+        const countByVeredaBarrio = filteredData.reduce((count, item) => {
           const veredaBarrio = item.NOMBRE;
 
           if (count[veredaBarrio]) {
@@ -20,6 +27,7 @@ const UseCarenciasPorVereda = () => {
           return count;
         }, {});
 
+
         // Convertir el objeto a un array de objetos
         const resultArray = Object.entries(countByVeredaBarrio).map(([veredaBarrio, count]) => ({
           veredaBarrio,
@@ -28,18 +36,9 @@ const UseCarenciasPorVereda = () => {
 
         // Asegúrate de que setea correctamente el estado como un array
         setCarenciasPorVeredaBarrio(resultArray);
-
-        // Calcular la suma total de carencias
-        const totalCount = resultArray.reduce((total, item) => total + item.count, 0);
-
-        // Calcular el promedio total de carencias
-        const promedioTotal = totalCount / resultArray.length;
-
-        // Guardar el promedio total en el estado
-        setPromedioTotalCarencias(promedioTotal);
       })
       .catch(error => console.error('Error al cargar los datos:', error));
-  }, []);
+  }, [tipoCarencia]);
   
   const getColorByCarencias = (nombreVeredaBarrio) => {
     const lengthFactor = carenciasPorVeredaBarrio.find(item => item.veredaBarrio === nombreVeredaBarrio)?.count || 0;
@@ -53,7 +52,7 @@ const UseCarenciasPorVereda = () => {
       fillColor = '#F2860D';
     } else if (lengthFactor <= 12) {
       fillColor = '#fc6107';
-    } else if (lengthFactor < 15) {
+    } else if (lengthFactor >= 13) {
       fillColor = '#FC0707';
     }
   
@@ -61,5 +60,6 @@ const UseCarenciasPorVereda = () => {
   };
   return { getColorByCarencias };
 }
+
 
 export default UseCarenciasPorVereda;

@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Comuneros = () => {
+const Comuneros = (carenciaColor) => {
   return (
     <div className='w-full min-h-96'>
       <svg

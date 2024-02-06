@@ -1,6 +1,6 @@
 import React from 'react'
 
-const LaLegia = () => {
+const LaLegia = (carenciaColor) => {
   
   return (
     <div className='w-full min-h-96'>

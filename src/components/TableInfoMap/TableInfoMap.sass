@@ -1,27 +1,71 @@
 @import '../../App.sass'
 
-.avatar
-  .mask
-    img
-      width: 100%
-      height: auto
+.tabsTables
+  white-space: nowrap
+  overflow-y: hidden
+  @media screen and ( max-width: 979px )
+    white-space: nowrap
+    overflow-y: hidden
 
-.selectActorEject
-  svg
-    cursor: pointer
-    path
-      transition: all .4s
-      stroke: rgba($black, .4 )
-
-.select-actor-carencia 
-  .select__control
-    width: 300px
-  .select__value-container
-    overflow-y: scroll
-    
-
-.tablist
+.tabs
   .tab
-    color: rgba($black , .5)
-  .tab:checked
-    color: rgba($black , 1)
+    opacity: .7
+    &.economico
+      &.active
+        background-color: $economico
+        opacity: 1
+        color: $white
+        border-color: $economico
+        svg
+          path 
+            stroke: $white
+            fill: $white
+    &.socialycultural
+      &.active
+        background-color: $socialycultural
+        opacity: 1
+        color: $white
+        border-color: $socialycultural
+        svg
+          path 
+            stroke: $white
+            fill: $white
+    &.politicoinstitucional
+      &.active
+        background-color: $politicoinstitucional
+        opacity: 1
+        color: $white
+        border-color: $politicoinstitucional
+        svg
+          path 
+            fill: $white
+    &.infraestructura
+      &.active
+        background-color: $infraestructura
+        opacity: 1
+        color: $white
+        border-color: $infraestructura
+        svg
+          path 
+            stroke: $white
+            fill: $white
+    &.ambiental
+      &.active
+        background-color: $ambiental
+        opacity: 1
+        color: $white
+        border-color: $ambiental
+        svg
+          path 
+            stroke: $white
+            fill: $white
+    &.seguridad
+      &.active
+        background-color: $seguridad
+        opacity: 1
+        color: $white
+        border-color: $seguridad
+        svg
+          path 
+            stroke: $white
+            fill: $white

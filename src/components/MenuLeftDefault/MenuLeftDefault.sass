@@ -1,2 +1,29 @@
 @import '../../App.sass'
 
+.menuLeftDefault
+  details
+    padding-left: 0em
+  .item
+    position: relative
+    &::after
+      position: absolute
+      content: ''
+      display: block
+      width: 2px
+      background-color: rgba($black, .5)
+      left: -5px
+  h2
+    pointer-events: none
+
+      
+  summary
+    position: relative
+    height: 3rem
+    min-height: 3rem
+    border-radius: 1rem 0 0 1rem !important
+    padding-left: 1rem 
+    padding-right: 1rem 
+    font-size: 0.875rem
+    svg
+      path 
+        fill: $blue-dark
