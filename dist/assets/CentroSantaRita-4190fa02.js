@@ -1,1 +1,0 @@
-import{j as t}from"./index-ce37095a.js";const r=()=>t.jsx("div",{children:"CentroSantaRita"});export{r as default};

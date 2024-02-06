@@ -188,7 +188,7 @@ const MapSelectCity = ({filterMap, departamento, municipio, getColorByCarencias 
 
   const SelectedMapComponent = mapComponents[municipioLowerCase] || null;
 
-  console.log(municipioLowerCase)
+  //console.log(municipioLowerCase)
 
   return (
     <div className={`w-full h-full`} id='mapCitySelect'>

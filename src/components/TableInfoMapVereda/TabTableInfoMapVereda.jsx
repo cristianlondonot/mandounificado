@@ -36,7 +36,7 @@ const TabTableInfoMap = ({municipio, onMarkerFactor, vereda}) => {
 
   return (
     <div className="tabsTables tabs content w-full  bg-white relative ">
-      <div className="join join-vertical lg:join-horizontal pt-3" role="tablist">
+      <div className="join join-horizontal pt-3" role="tablist">
         <div
           className={`indicator  tab btn join-item ${activeTab === 1 ? 'active' : ''}`}
           onClick={() => handleTabClick(1)}

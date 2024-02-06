@@ -62,6 +62,35 @@ const SearchInput = ({ onSearch }) => {
 
   const handleResultClick = (result) => {
     const departamento = "departamento/santander"; // Departamento fijo
+  
+    if (searchType === 'Municipio') {
+      // Si se seleccionó la búsqueda por Municipio
+      const municipio = result.MUNICIPIO.toLowerCase().replace(/\s+/g, '-');
+  
+      // Construir la URL para municipio
+      const url = `/departamento/santander/municipio/${municipio}`;
+  
+      // Redirigir a la página correspondiente
+      navigate(url);
+    } else if (searchType === 'Vereda') {
+      // Si se seleccionó la búsqueda por Vereda
+      const vereda = result.NOMBRE.toLowerCase().replace(/\s+/g, '-');
+      const municipio = result.MUNICIPIO.toLowerCase().replace(/\s+/g, '-');
+  
+      // Construir la URL para vereda
+      const url = `/departamento/santander/municipio/${municipio}/vereda/${vereda}`;
+  
+      // Redirigir a la página correspondiente
+      navigate(url);
+    }
+  
+    // Limpiar el campo de búsqueda y los resultados después de hacer clic
+    setSearchTerm('');
+    setSearchResults([]);
+  };
+
+  /* const handleResultClick = (result) => {
+    const departamento = "departamento/santander"; // Departamento fijo
 
     if (result.NOMBRE) {
       const vereda = result.NOMBRE.toLowerCase().replace(/\s+/g, '-');
@@ -91,7 +120,7 @@ const SearchInput = ({ onSearch }) => {
     // Limpiar el campo de búsqueda y los resultados después de hacer clic
     setSearchTerm('');
     setSearchResults([]);
-  };
+  }; */
 
   return (
     <div className="search-input-container relative">

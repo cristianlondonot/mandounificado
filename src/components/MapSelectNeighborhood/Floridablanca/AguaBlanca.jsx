@@ -1,6 +1,8 @@
 import React from 'react'
+import UseCarenciasPorVereda from '../../UseCarenciasPorVereda/UseCarenciasPorVereda'
 
 const AguaBlanca = (carenciaColor) => {
+  const { getColorByCarencias } = UseCarenciasPorVereda(filterMap.toUpperCase());
   return (
     <svg
       id="a"
@@ -11,7 +13,7 @@ const AguaBlanca = (carenciaColor) => {
       className='m-auto'
     >
       <defs>
-        <style>{`.b{fill:${carenciaColor.carenciaColor};fill-rule:evenodd;stroke-width:0px;}`}</style>
+        <style>{`.b{fill:${getColorByCarencias('AGUA BLANCA', municipio.toUpperCase())};fill-rule:evenodd;stroke-width:0px;}`}</style>
       </defs>
       <polygon
         className="b"
