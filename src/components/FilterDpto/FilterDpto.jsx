@@ -32,7 +32,7 @@ const FilterDpto = ({ selectedDepartamentoProp }) => {
   const handleVeredaChange = (e) => {
     const vereda = e.target.value.toLowerCase().replace(/\s+/g, '-');
     setSelectedVereda(vereda);
-    const nuevaRuta = `/departamento/${selectedDepartamento}/municipio/${selectedMunicipio}/vereda/${vereda}`;
+    const nuevaRuta = `/departamento/${selectedDepartamento}/municipio/${municipio}/vereda/${vereda}`;
     navigate(nuevaRuta);
   };
 

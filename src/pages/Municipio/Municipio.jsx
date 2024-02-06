@@ -45,8 +45,8 @@ const Municipio = () => {
             <CityState municipio={municipio}/>
           </div>
           
-          <div className='p-4 w-full relative'>
-            <InfoCity municipio={municipio}/>
+          <div className='p4 w-full municipio-map-sec relative'>
+            
             
             <div className="map lg:min-h-96 w-full lg:w-[70%]">
               <MapSelectCity 
@@ -56,6 +56,7 @@ const Municipio = () => {
                 filterMap={botonPresionado}
               />
             </div>
+            <InfoCity municipio={municipio}/>
             
           </div>
           <div className="p-5 w-full">

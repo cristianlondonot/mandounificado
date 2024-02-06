@@ -13,7 +13,7 @@ import California from './California/California';
 import Capitanejo from './Capitanejo/Capitanejo';
 import Carcasi from './Carcasi/Carcasi';
 import Cepita from './Cepita/Cepita';
-import Cerritos from './Cerritos/Cerritos';
+import Cerrito from './Cerrito/Cerrito';
 import Charala from './Charala/Charala';
 import Charta from './Charta/Charta';
 import Chima from './Chima/Chima';
@@ -84,12 +84,16 @@ import Velez from './Velez/Velez';
 import Vetas from './Vetas/Vetas';
 import Villanueva from './Villanueva/Villanueva';
 import Zapatoca from './Zapatoca/Zapatoca';
+import Aguada from './Aguada/Aguada';
+import ElPeñon from './ElPeñon/ElPeñon';
+import Barbosa from './Barbosa/Barbosa';
 
 const mapComponents = {
   bucaramanga: Bucaramanga,
   floridablanca: Floridablanca,
   albania: Albania,
   barrancabermeja: Barrancabermeja,
+  barbosa: Barbosa,
   aratoca: Aratoca,
   barichara: Barichara,
   betulia: Betulia,
@@ -99,7 +103,7 @@ const mapComponents = {
   capitanejo: Capitanejo,
   carcasi: Carcasi,
   cepita: Cepita,
-  cerritos: Cerritos,
+  cerrito: Cerrito,
   charala: Charala,
   charta: Charta,
   chima: Chima,
@@ -114,6 +118,7 @@ const mapComponents = {
   'el-florian': ElFlorian,
   'el-guacamayo': ElGuacamayo,
   'el-playon': ElPlayon,
+  'el-peñon': ElPeñon,
   encino: Encino,
   enciso: Enciso,
   galan: Galan,
@@ -127,19 +132,20 @@ const mapComponents = {
   hato: Hato,
   'jesus-maria': JesusMaria,
   jordan: Jordan,
+  aguada: Aguada,
   'la-belleza': LaBelleza,
   landazuri: Landazuri,
   'la-paz': LaPaz,
   lebrija: Lebrija,
-  'los-Santos': LosSantos,
+  'los-santos': LosSantos,
   macaravita: Macaravita,
   malaga: Malaga,
   matanza: Matanza,
   mogotes: Mogotes,
   molagavita: Molagavita,
-  Ocamonte: Ocamonte,
+  ocamonte: Ocamonte,
   oiba: Oiba,
-  Onzaga: Onza,
+  onzaga: Onza,
   palmar: Palmar,
   'palmas-de-socorro': PalmasDeSocorro,
   paramo: Paramo,
@@ -182,7 +188,7 @@ const MapSelectCity = ({filterMap, departamento, municipio, getColorByCarencias 
 
   const SelectedMapComponent = mapComponents[municipioLowerCase] || null;
 
-  console.log(municipioLowerCase)
+  //console.log(municipioLowerCase)
 
   return (
     <div className={`w-full h-full`} id='mapCitySelect'>

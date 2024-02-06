@@ -1,7 +1,12 @@
 @import '../../App.sass'
 
-.drawer-content
+.municipio-map-sec
+  min-height: 80vh
+  display: flex
+  justify-content: space-between
+  @media screen and ( max-width: 979px )
+    display: block
   svg
-    @media screen and ( max-width: 979px )
-      width: 100%
-      height: auto
+    max-width: 600px
+    width: 100%
+    margin: auto

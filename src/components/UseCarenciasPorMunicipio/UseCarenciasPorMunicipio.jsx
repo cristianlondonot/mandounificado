@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 const UseCarenciasPorMunicipio = ( tipoCarencia ) => {
   const [carenciasPorMunicipio, setCarenciasPorMunicipio] = useState([]);
 
-  console.log(tipoCarencia)
+  //console.log(tipoCarencia)
   //funcion filtro
 
   useEffect(() => {
@@ -36,7 +36,7 @@ const UseCarenciasPorMunicipio = ( tipoCarencia ) => {
   
         setCarenciasPorMunicipio(resultArray);
 
-        console.log(resultArray)
+        //console.log(resultArray)
       })
       .catch(error => console.error('Error al cargar los datos:', error));
   }, [tipoCarencia]);

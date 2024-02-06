@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import MenuLeftDefault from '../../components/MenuLeftDefault/MenuLeftDefault';
 import { useParams } from 'react-router-dom';
 import MapSelectNeighborhood from '../../components/MapSelectNeighborhood/MapSelectNeighborhood';
@@ -12,13 +12,19 @@ import FilterDpto from '../../components/FilterDpto/FilterDpto';
 const Vereda = () => {
 
   const {departamento, municipio,  vereda} = useParams()
+
+  const [botonPresionado, setBotonPresionado] = useState('default');
   
   const formatVeredaBarrio = vereda.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
   const formatMunicipio = municipio.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
   
   
+  
+  const handleBotonPresionadoChange = (boton) => {
+    setBotonPresionado(boton);
+  };
+  
   const { getColorByCarencias } = UseCarenciasPorVereda();
-
   return (
     <>
       {/* <div className="p-2 w-full filterDpto pt-[288.5px] lg:pt-[168.5px]"> */}
@@ -38,14 +44,16 @@ const Vereda = () => {
           </div>
           
           <div className="p4 w-full vereda-map-sec relative">
-            <InfoCity />
-            <div className="map min-h-96">
+            
+            <div className="w-full min-h-96">
               <MapSelectNeighborhood 
                 municipio={municipio}
                 vereda={vereda} 
-                carenciaColor={getColorByCarencias(formatVeredaBarrio.toUpperCase())}
+                carenciaColor={getColorByCarencias(formatVeredaBarrio.toUpperCase(), municipio.toUpperCase())}
+                filterMap={botonPresionado}
               />
             </div>
+            <InfoCity />
             
           </div>
           {/* <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">
@@ -56,7 +64,9 @@ const Vereda = () => {
           </div>
         </div>
         <div className="drawer-side pt-[288.5px] lg:pt-0">
-          <MenuLeftDefault />
+          <MenuLeftDefault 
+            onBotonPresionadoChange={handleBotonPresionadoChange} 
+          />
         </div>
       </div>
     </>

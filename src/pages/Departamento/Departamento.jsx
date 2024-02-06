@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import MapSelectDepartment from '../../components/MapSelectDepartment/MapSelectDepartment';
-import { Outlet, useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import MenuLeftDefault from '../../components/MenuLeftDefault/MenuLeftDefault';
 import DptoState from '../../components/DptoState/DptoState';
-import UseCarenciasPorMunicipio from '../../components/useCarenciasPorMunicipio/useCarenciasPorMunicipio';
+import UseCarenciasPorMunicipio from '../../components/UseCarenciasPorMunicipio/UseCarenciasPorMunicipio';
 import FilterDpto from '../../components/FilterDpto/FilterDpto';
 
 const Departamento = () => {
@@ -25,7 +25,7 @@ const Departamento = () => {
 
   const { getColorByCarencias } = UseCarenciasPorMunicipio();
 
-  console.log(botonPresionado)
+  //console.log(botonPresionado)
 
   return (
     <>

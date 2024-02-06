@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 const UseCarenciasPorVereda = ( tipoCarencia ) => {
   const [carenciasPorVeredaBarrio, setCarenciasPorVeredaBarrio] = useState([]);
 
-  console.log(tipoCarencia)
+  //console.log(tipoCarencia)
   
   useEffect(() => {
     fetch('https://raw.githubusercontent.com/cristianlondonot/mandounificado-spidersoft/main/data-factor.json')
@@ -16,14 +16,14 @@ const UseCarenciasPorVereda = ( tipoCarencia ) => {
         }
 
         const countByVeredaBarrio = filteredData.reduce((count, item) => {
-          const veredaBarrio = item.NOMBRE;
-
+          const veredaBarrio = `${item.NOMBRE} - ${item.MUNICIPIO}`;
+        
           if (count[veredaBarrio]) {
             count[veredaBarrio]++;
           } else {
             count[veredaBarrio] = 1;
           }
-
+        
           return count;
         }, {});
 
@@ -36,13 +36,18 @@ const UseCarenciasPorVereda = ( tipoCarencia ) => {
 
         // Asegúrate de que setea correctamente el estado como un array
         setCarenciasPorVeredaBarrio(resultArray);
+        //console.log(resultArray)
       })
       .catch(error => console.error('Error al cargar los datos:', error));
   }, [tipoCarencia]);
   
-  const getColorByCarencias = (nombreVeredaBarrio) => {
-    const lengthFactor = carenciasPorVeredaBarrio.find(item => item.veredaBarrio === nombreVeredaBarrio)?.count || 0;
-    
+  const getColorByCarencias = (nombreVeredaBarrio, nombreMunicipio) => {
+    const veredaMunicipio = `${nombreVeredaBarrio} - ${nombreMunicipio}`;
+  
+    const lengthFactor = carenciasPorVeredaBarrio.find(item =>
+      item.veredaBarrio === veredaMunicipio
+    )?.count || 0;
+  
     let fillColor = '#656565'; // Color predeterminado
     if (lengthFactor <= 3) {
       fillColor = '#387905';

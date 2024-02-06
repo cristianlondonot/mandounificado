@@ -4,13 +4,13 @@ import { Tooltip } from 'react-tooltip'
 import '../../../App.sass'
 import UseCarenciasPorVereda from '../../UseCarenciasPorVereda/UseCarenciasPorVereda'
 
-const Floridablanca = ({departamento, municipio}) => { 
+const Floridablanca = ({departamento, municipio, filterMap}) => { 
 
   //const [nombreVeredaBarrio, setNombreVeredaBarrio] = useState('');
   const navigate = useNavigate();
 
   //esta función es la que asigna el color según la cantidad de carencias que tiene la vereda o el barrio
-  const { getColorByCarencias } = UseCarenciasPorVereda();
+  const { getColorByCarencias } = UseCarenciasPorVereda(filterMap.toUpperCase());
 
   //Esta función abre la vereda o barrio seleccionado. Toma los datos de data-name-url y los ingresa a navigate 
   const handleNeighborhoodClick = (event) => {
@@ -31,6 +31,8 @@ const Floridablanca = ({departamento, municipio}) => {
     
   };
 
+  const municipioFormat = municipio.toUpperCase();
+
   return (
     <div className=' w-full h-full max-w-3xl m-auto' id='veredaBarrioMap'>
       <Tooltip id="my-tooltip"  />
@@ -44,7 +46,7 @@ const Floridablanca = ({departamento, municipio}) => {
         
           <path
             style={{
-              fill: getColorByCarencias('AGUA BLANCA'),
+              fill: getColorByCarencias('AGUA BLANCA', municipioFormat),
               fillRule: "evenodd",
               stroke: "#fff",
               strokeMiterlimit: 10,
@@ -58,7 +60,7 @@ const Floridablanca = ({departamento, municipio}) => {
           <path
             className="z"
             style={{
-              fill: getColorByCarencias('ALSACIA'),
+              fill: getColorByCarencias('ALSACIA', municipio.toUpperCase()),
               stroke: "#fff",
               strokeMiterlimit: 10,
               strokeWidth: 2,
@@ -72,7 +74,7 @@ const Floridablanca = ({departamento, municipio}) => {
           <path
             className="v"
             style={{
-              fill: getColorByCarencias('CASIANO'),
+              fill: getColorByCarencias('CASIANO', municipio.toUpperCase()),
               stroke: "#fff",
               strokeMiterlimit: 10,
               strokeWidth: 2,
@@ -90,7 +92,7 @@ const Floridablanca = ({departamento, municipio}) => {
               stroke: "#fff",
               strokeMiterlimit: 10,
               strokeWidth: 2,
-              fill: getColorByCarencias('GUAYANAS'),
+              fill: getColorByCarencias('GUAYANAS', municipio.toUpperCase()),
             }}
             data-tooltip-id="my-tooltip" data-tooltip-content="Guayanas"
             onClick={handleNeighborhoodClick} data-url-name="guayanas"
@@ -101,7 +103,7 @@ const Floridablanca = ({departamento, municipio}) => {
           <path
             className="w"
             style={{
-              fill: getColorByCarencias('HELECHALES'),
+              fill: getColorByCarencias('HELECHALES', municipio.toUpperCase()),
               stroke: "#fff",
               strokeMiterlimit: 10,
               strokeWidth: 2,
@@ -115,7 +117,7 @@ const Floridablanca = ({departamento, municipio}) => {
           <path
             className="z"
             style={{
-              fill: getColorByCarencias('RIO FRIO'),
+              fill: getColorByCarencias('RIO FRIO', municipio.toUpperCase()),
               stroke: "#fff",
               strokeMiterlimit: 10,
               strokeWidth: 2,
@@ -129,7 +131,7 @@ const Floridablanca = ({departamento, municipio}) => {
           <path
             className="w"
             style={{
-              fill: getColorByCarencias('RUITOQUE'),
+              fill: getColorByCarencias('RUITOQUE', municipio.toUpperCase()),
               stroke: "#fff",
               strokeMiterlimit: 10,
               strokeWidth: 2,
@@ -142,7 +144,7 @@ const Floridablanca = ({departamento, municipio}) => {
         
           <path
             style={{
-              fill: getColorByCarencias('VERICUTE'),
+              fill: getColorByCarencias('VERICUTE', municipio.toUpperCase()),
               stroke: "#fff",
               strokeMiterlimit: 10,
               strokeWidth: 2,
@@ -157,7 +159,7 @@ const Floridablanca = ({departamento, municipio}) => {
         
           <path
             style={{
-              fill: getColorByCarencias('ZONA URBANA'),
+              fill: getColorByCarencias('ZONA URBANA', municipio.toUpperCase()),
               stroke: "#fff",
               strokeMiterlimit: 10,
               strokeWidth: 2,

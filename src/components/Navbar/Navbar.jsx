@@ -20,7 +20,10 @@ const Navbar = () => {
           <label htmlFor="my-drawer-2" className="btn bg-transparent border-none drawer-button hover:bg-transparent relative z-30">
             <img src="/img/brand/Logo-santander.png" alt="" className='w-auto h-full' />
           </label>
-          <SearchInput onSearch={tuFuncionOnSearch} />
+          <div className="hidden lg:block">
+            <SearchInput onSearch={tuFuncionOnSearch} />
+
+          </div>
         </div>
         <div className="navbar-center">
           

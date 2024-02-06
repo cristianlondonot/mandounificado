@@ -4,13 +4,13 @@ import { Tooltip } from 'react-tooltip'
 import '../../../App.sass'
 import UseCarenciasPorVereda from '../../UseCarenciasPorVereda/UseCarenciasPorVereda'
 
-const Albania = ({departamento, municipio}) => {
+const Albania = ({departamento, municipio, filterMap}) => {
 
   
   const navigate = useNavigate();
 
   //esta función es la que asigna el color según la cantidad de carencias que tiene la vereda o el barrio
-  const { getColorByCarencias } = UseCarenciasPorVereda();
+  const { getColorByCarencias } = UseCarenciasPorVereda(filterMap.toUpperCase());
 
   //Esta función abre la vereda o barrio seleccionado. Toma los datos de data-name-url y los ingresa a navigate 
   const handleNeighborhoodClick = (event) => {
@@ -49,7 +49,7 @@ const Albania = ({departamento, municipio}) => {
             id="_x32_9"
             fillRule="evenodd"
             clipRule="evenodd"
-            fill={getColorByCarencias('AGUACATE')}
+            fill={getColorByCarencias('AGUACATE', municipio.toUpperCase())}
             data-tooltip-id="my-tooltip" 
             data-tooltip-content="Aguacate"
             onClick={handleNeighborhoodClick} 
@@ -60,7 +60,7 @@ const Albania = ({departamento, municipio}) => {
             id="_x32_8"
             fillRule="evenodd"
             clipRule="evenodd"
-            fill={getColorByCarencias('ALTAMIRA')}
+            fill={getColorByCarencias('ALTAMIRA', municipio.toUpperCase())}
             data-tooltip-id="my-tooltip" 
             data-tooltip-content="Altamira"
             onClick={handleNeighborhoodClick} 
@@ -72,7 +72,7 @@ const Albania = ({departamento, municipio}) => {
               id="_x32_7"
               fillRule="evenodd"
               clipRule="evenodd"
-              fill={getColorByCarencias('AYACUCHO')}
+              fill={getColorByCarencias('AYACUCHO', municipio.toUpperCase())}
               data-tooltip-id="my-tooltip" 
               data-tooltip-content="Ayacucho"
               onClick={handleNeighborhoodClick} 
@@ -84,7 +84,7 @@ const Albania = ({departamento, municipio}) => {
               id="_x32_6"
               fillRule="evenodd"
               clipRule="evenodd"
-              fill={getColorByCarencias('CANOAS')}
+              fill={getColorByCarencias('CANOAS', municipio.toUpperCase())}
               data-tooltip-id="my-tooltip" 
               data-tooltip-content="Canoas"
               onClick={handleNeighborhoodClick} 
@@ -97,7 +97,7 @@ const Albania = ({departamento, municipio}) => {
               id="_x32_5"
               fillRule="evenodd"
               clipRule="evenodd"
-              fill={getColorByCarencias('CANUTILLO')}
+              fill={getColorByCarencias('CANUTILLO', municipio.toUpperCase())}
               data-tooltip-id="my-tooltip" 
               data-tooltip-content="Canutillo"
               onClick={handleNeighborhoodClick} 
@@ -109,7 +109,7 @@ const Albania = ({departamento, municipio}) => {
               id="_x32_4"
               fillRule="evenodd"
               clipRule="evenodd"
-              fill={getColorByCarencias('CARRETERO')}
+              fill={getColorByCarencias('CARRETERO', municipio.toUpperCase())}
               data-tooltip-id="my-tooltip" 
               data-tooltip-content="Carretero"
               onClick={handleNeighborhoodClick} 
@@ -121,7 +121,7 @@ const Albania = ({departamento, municipio}) => {
               id="_x32_3"
               fillRule="evenodd"
               clipRule="evenodd"
-              fill={getColorByCarencias('CHEBRE')}
+              fill={getColorByCarencias('CHEBRE', municipio.toUpperCase())}
               data-tooltip-id="my-tooltip" 
               data-tooltip-content="Chebre"
               onClick={handleNeighborhoodClick} 
@@ -133,7 +133,7 @@ const Albania = ({departamento, municipio}) => {
               id="_x32_2"
               fillRule="evenodd"
               clipRule="evenodd"
-              fill={getColorByCarencias('CORCONDILLA')}
+              fill={getColorByCarencias('CORCONDILLA', municipio.toUpperCase())}
               data-tooltip-id="my-tooltip" 
               data-tooltip-content="Corcondilla"
               onClick={handleNeighborhoodClick} 
@@ -145,7 +145,7 @@ const Albania = ({departamento, municipio}) => {
               id="_x32_1"
               fillRule="evenodd"
               clipRule="evenodd"
-              fill={getColorByCarencias('EL HATILLO')}
+              fill={getColorByCarencias('EL HATILLO', municipio.toUpperCase())}
               data-tooltip-id="my-tooltip" 
               data-tooltip-content="El Hatillo"
               onClick={handleNeighborhoodClick} 
@@ -158,7 +158,7 @@ const Albania = ({departamento, municipio}) => {
               id="_x32_0"
               fillRule="evenodd"
               clipRule="evenodd"
-              fill={getColorByCarencias('EL TABLON')}
+              fill={getColorByCarencias('EL TABLON', municipio.toUpperCase())}
               data-tooltip-id="my-tooltip" 
               data-tooltip-content="El Tablon"
               onClick={handleNeighborhoodClick} 
@@ -170,7 +170,7 @@ const Albania = ({departamento, municipio}) => {
               id="_x31_9"
               fillRule="evenodd"
               clipRule="evenodd"
-              fill={getColorByCarencias('GUACOS')}
+              fill={getColorByCarencias('GUACOS', municipio.toUpperCase())}
               data-tooltip-id="my-tooltip" 
               data-tooltip-content="Guacos"
               onClick={handleNeighborhoodClick} 
@@ -182,7 +182,7 @@ const Albania = ({departamento, municipio}) => {
               id="_x31_8"
               fillRule="evenodd"
               clipRule="evenodd"
-              fill={getColorByCarencias('GUAYABAL')}
+              fill={getColorByCarencias('GUAYABAL', municipio.toUpperCase())}
               data-tooltip-id="my-tooltip" 
               data-tooltip-content="Guayabal"
               onClick={handleNeighborhoodClick} 
@@ -194,7 +194,7 @@ const Albania = ({departamento, municipio}) => {
               id="_x31_7"
               fillRule="evenodd"
               clipRule="evenodd"
-              fill={getColorByCarencias('HONDA')}
+              fill={getColorByCarencias('HONDA', municipio.toUpperCase())}
               data-tooltip-id="my-tooltip" 
               data-tooltip-content="Honda"
               onClick={handleNeighborhoodClick} 
@@ -206,7 +206,7 @@ const Albania = ({departamento, municipio}) => {
               id="_x31_6"
               fillRule="evenodd"
               clipRule="evenodd"
-              fill={getColorByCarencias('LA MESA')}
+              fill={getColorByCarencias('LA MESA', municipio.toUpperCase())}
               data-tooltip-id="my-tooltip" 
               data-tooltip-content="La Mesa"
               onClick={handleNeighborhoodClick} 
@@ -218,7 +218,7 @@ const Albania = ({departamento, municipio}) => {
               id="_x31_5"
               fillRule="evenodd"
               clipRule="evenodd"
-              fill={getColorByCarencias('MEDIOS')}
+              fill={getColorByCarencias('MEDIOS', municipio.toUpperCase())}
               data-tooltip-id="my-tooltip" 
               data-tooltip-content="Medios"
               onClick={handleNeighborhoodClick} 
@@ -230,7 +230,7 @@ const Albania = ({departamento, municipio}) => {
               id="_x31_4"
               fillRule="evenodd"
               clipRule="evenodd"
-              fill={getColorByCarencias('MESA GRANDE')}
+              fill={getColorByCarencias('MESA GRANDE', municipio.toUpperCase())}
               data-tooltip-id="my-tooltip" 
               data-tooltip-content="Mesa Grande"
               onClick={handleNeighborhoodClick} 
@@ -243,7 +243,7 @@ const Albania = ({departamento, municipio}) => {
               id="_x31_3"
               fillRule="evenodd"
               clipRule="evenodd"
-              fill={getColorByCarencias('MOCHILA')}
+              fill={getColorByCarencias('MOCHILA', municipio.toUpperCase())}
               data-tooltip-id="my-tooltip" 
               data-tooltip-content="Mochila"
               onClick={handleNeighborhoodClick} 
@@ -255,7 +255,7 @@ const Albania = ({departamento, municipio}) => {
               id="_x31_2"
               fillRule="evenodd"
               clipRule="evenodd"
-              fill={getColorByCarencias('PAN DE AZUCAR')}
+              fill={getColorByCarencias('PAN DE AZUCAR', municipio.toUpperCase())}
               data-tooltip-id="my-tooltip" 
               data-tooltip-content="Pan De Azucar"
               onClick={handleNeighborhoodClick} 
@@ -267,7 +267,7 @@ const Albania = ({departamento, municipio}) => {
               id="_x31_1"
               fillRule="evenodd"
               clipRule="evenodd"
-              fill={getColorByCarencias('PANTANOS')}
+              fill={getColorByCarencias('PANTANOS', municipio.toUpperCase())}
               data-tooltip-id="my-tooltip" 
               data-tooltip-content="Pantanos"
               onClick={handleNeighborhoodClick} 
@@ -279,7 +279,7 @@ const Albania = ({departamento, municipio}) => {
               id="_x31_0"
               fillRule="evenodd"
               clipRule="evenodd"
-              fill={getColorByCarencias('PLAYAS')}
+              fill={getColorByCarencias('PLAYAS', municipio.toUpperCase())}
               data-tooltip-id="my-tooltip" 
               data-tooltip-content="Playas"
               onClick={handleNeighborhoodClick} 
@@ -291,7 +291,7 @@ const Albania = ({departamento, municipio}) => {
               id="_x39_"
               fillRule="evenodd"
               clipRule="evenodd"
-              fill={getColorByCarencias('POTREROS')}
+              fill={getColorByCarencias('POTREROS', municipio.toUpperCase())}
               data-tooltip-id="my-tooltip" 
               data-tooltip-content="Potreros"
               onClick={handleNeighborhoodClick} 
@@ -303,7 +303,7 @@ const Albania = ({departamento, municipio}) => {
               id="_x38_"
               fillRule="evenodd"
               clipRule="evenodd"
-              fill={getColorByCarencias('POVEDA')}
+              fill={getColorByCarencias('POVEDA', municipio.toUpperCase())}
               data-tooltip-id="my-tooltip" 
               data-tooltip-content="Poveda"
               onClick={handleNeighborhoodClick} 
@@ -315,7 +315,7 @@ const Albania = ({departamento, municipio}) => {
               id="_x37_"
               fillRule="evenodd"
               clipRule="evenodd"
-              fill={getColorByCarencias('PUEBLO VIEJO')}
+              fill={getColorByCarencias('PUEBLO VIEJO', municipio.toUpperCase())}
               data-tooltip-id="my-tooltip" 
               data-tooltip-content="Pueblo Viejo"
               onClick={handleNeighborhoodClick} 
@@ -327,7 +327,7 @@ const Albania = ({departamento, municipio}) => {
               id="_x36_"
               fillRule="evenodd"
               clipRule="evenodd"
-              fill={getColorByCarencias('SABANETA')}
+              fill={getColorByCarencias('SABANETA', municipio.toUpperCase())}
               data-tooltip-id="my-tooltip" 
               data-tooltip-content="Sabaneta"
               onClick={handleNeighborhoodClick} 
@@ -340,7 +340,7 @@ const Albania = ({departamento, municipio}) => {
               id="_x35_"
               fillRule="evenodd"
               clipRule="evenodd"
-              fill={getColorByCarencias('SALITRE')}
+              fill={getColorByCarencias('SALITRE', municipio.toUpperCase())}
               data-tooltip-id="my-tooltip" 
               data-tooltip-content="Salitre"
               onClick={handleNeighborhoodClick} 
@@ -353,7 +353,7 @@ const Albania = ({departamento, municipio}) => {
               id="_x34_"
               fillRule="evenodd"
               clipRule="evenodd"
-              fill={getColorByCarencias('SAN PABLO')}
+              fill={getColorByCarencias('SAN PABLO', municipio.toUpperCase())}
               data-tooltip-id="my-tooltip" 
               data-tooltip-content="San Pablo"
               onClick={handleNeighborhoodClick} 
@@ -365,7 +365,7 @@ const Albania = ({departamento, municipio}) => {
               id="_x33_"
               fillRule="evenodd"
               clipRule="evenodd"
-              fill={getColorByCarencias('SANTA RITA')}
+              fill={getColorByCarencias('SANTA RITA', municipio.toUpperCase())}
               data-tooltip-id="my-tooltip" 
               data-tooltip-content="Santa Rita"
               onClick={handleNeighborhoodClick} 
@@ -377,7 +377,7 @@ const Albania = ({departamento, municipio}) => {
               id="_x32_"
               fillRule="evenodd"
               clipRule="evenodd"
-              fill={getColorByCarencias('UTAPA')}
+              fill={getColorByCarencias('UTAPA', municipio.toUpperCase())}
               data-tooltip-id="my-tooltip" 
               data-tooltip-content="Utapa"
               onClick={handleNeighborhoodClick} 
@@ -389,7 +389,7 @@ const Albania = ({departamento, municipio}) => {
               id="_x31_"
               fillRule="evenodd"
               clipRule="evenodd"
-              fill={getColorByCarencias('UVALES')}
+              fill={getColorByCarencias('UVALES', municipio.toUpperCase())}
               data-tooltip-id="my-tooltip" 
               data-tooltip-content="Uvales"
               onClick={handleNeighborhoodClick} 

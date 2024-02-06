@@ -1,6 +1,11 @@
 import React from 'react'
+import UseCarenciasPorVereda from '../../UseCarenciasPorVereda/UseCarenciasPorVereda'
 
-const AguasNegras = (carenciaColor) => {
+const AguasNegras = ({municipio, filterMap}) => {
+
+  const { getColorByCarencias } = UseCarenciasPorVereda(filterMap.toUpperCase());
+
+
   return (
     <div className='w-full min-h-96'>
       <svg
@@ -15,7 +20,7 @@ const AguasNegras = (carenciaColor) => {
       <defs>
         <style>
           {
-            `.uuid-d200dff4-2702-41f9-b0c1-fc72542b5a9a{fill:${carenciaColor.carenciaColor};fill-rule:evenodd;stroke:#fff;stroke-miterlimit:10;stroke-width:2px;}`
+            `.uuid-d200dff4-2702-41f9-b0c1-fc72542b5a9a{fill:${getColorByCarencias('AGUAS NEGRAS', municipio.toUpperCase())};fill-rule:evenodd;stroke:#fff;stroke-miterlimit:10;stroke-width:2px;}`
           }
         </style>
         <filter
