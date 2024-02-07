@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import dataFactor from '../../../data-factor.json';
 import { useNavigate, useLocation } from 'react-router-dom';
+import './SearchInput.sass'
 
 const SearchInput = ({ onSearch }) => {
   const navigate = useNavigate();
@@ -89,39 +90,6 @@ const SearchInput = ({ onSearch }) => {
     setSearchResults([]);
   };
 
-  /* const handleResultClick = (result) => {
-    const departamento = "departamento/santander"; // Departamento fijo
-
-    if (result.NOMBRE) {
-      const vereda = result.NOMBRE.toLowerCase().replace(/\s+/g, '-');
-      const municipio = result.MUNICIPIO.toLowerCase().replace(/\s+/g, '-');
-
-      // Construir la URL
-      const url = `/departamento/santander/municipio/${municipio}/vereda/${vereda}`;
-
-      // Redirigir a la página correspondiente
-      navigate(url);
-    } else if (result.MUNICIPIO) {
-      // Construir la URL para municipio
-      const municipio = result.MUNICIPIO.toLowerCase().replace(/\s+/g, '-');
-      const url = `/departamento/santander/municipio/${municipio}`;
-
-      // Redirigir a la página correspondiente
-      navigate(url);
-    } else if (typeof result === 'string') {
-      // Caso especial para el home
-      const formattedResult = result.toLowerCase().replace(/\s+/g, '-');
-      const url = `/${departamento}/municipio/${formattedResult}`;
-
-      // Redirigir a la página de búsqueda del municipio o vereda
-      navigate(url);
-    }
-
-    // Limpiar el campo de búsqueda y los resultados después de hacer clic
-    setSearchTerm('');
-    setSearchResults([]);
-  }; */
-
   return (
     <div className="search-input-container relative">
       <div className="join">
@@ -152,7 +120,10 @@ const SearchInput = ({ onSearch }) => {
         <ul className="search-results bg-white bordered p-2 absolute">
           {searchResults.map((result, index) => (
             <li key={index} onClick={() => handleResultClick(result)}>
-              {searchType === 'Municipio' ? result.MUNICIPIO : `${result.NOMBRE} | ${result.MUNICIPIO}`}
+              <div className="result">
+                {searchType === 'Municipio' ? result.MUNICIPIO : `${result.NOMBRE} | ${result.MUNICIPIO}`}
+              </div>
+              <div className="divider"></div> 
             </li>
           ))}
         </ul>
