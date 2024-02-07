@@ -32,8 +32,7 @@ const Barrancabermeja = ({departamento, municipio, filterMap}) => {
     
   };
 
-  console.log(getColorByCarencias('AGUAS NEGRAS', municipio.toUpperCase()))
-  console.log(municipio)
+
   
   return (
     <div  className='w-full h-full'>
