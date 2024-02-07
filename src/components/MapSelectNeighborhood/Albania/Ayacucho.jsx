@@ -3,7 +3,6 @@ import UseCarenciasPorVereda from '../../UseCarenciasPorVereda/UseCarenciasPorVe
 
 const Ayacucho = ({municipio, filterMap}) => {
   const { getColorByCarencias } = UseCarenciasPorVereda(filterMap.toUpperCase());
-
   return (
     <div className='w-full min-h-96'>
       <svg

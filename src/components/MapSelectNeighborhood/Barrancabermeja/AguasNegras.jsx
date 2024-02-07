@@ -2,10 +2,7 @@ import React from 'react'
 import UseCarenciasPorVereda from '../../UseCarenciasPorVereda/UseCarenciasPorVereda'
 
 const AguasNegras = ({municipio, filterMap}) => {
-
   const { getColorByCarencias } = UseCarenciasPorVereda(filterMap.toUpperCase());
-
-
   return (
     <div className='w-full min-h-96'>
       <svg

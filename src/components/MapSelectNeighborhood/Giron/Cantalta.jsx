@@ -1,6 +1,8 @@
 import React from 'react'
+import UseCarenciasPorVereda from '../../UseCarenciasPorVereda/UseCarenciasPorVereda'
 
-const Cantalta = () => {
+const Cantalta = ({municipio, filterMap}) => {
+  const { getColorByCarencias } = UseCarenciasPorVereda(filterMap.toUpperCase());
   return (
     <div>Cantalta</div>
   )
