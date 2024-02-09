@@ -22,7 +22,7 @@ const AddNovedadPanel = () => {
           
         </label>
       </div>
-      <div className="drawer-side">
+      <div className="drawer-side pt-[72.5px] lg:pt-0">
         <label htmlFor="my-drawer-2" aria-label="close sidebar" className="drawer-overlay"></label>
         <ul className="menu bg-base-200 w-80 min-h-full ">
           <li>

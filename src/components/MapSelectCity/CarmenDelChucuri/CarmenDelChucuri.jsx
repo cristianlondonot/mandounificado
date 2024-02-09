@@ -28,6 +28,7 @@ const CarmenDelChucuri = ({departamento, municipio, filterMap}) => {
     
   };
 
+
   
   return (
     <div className="w-full h-full">

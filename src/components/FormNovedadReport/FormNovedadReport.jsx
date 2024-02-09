@@ -2,7 +2,7 @@ import React from 'react'
 
 const FormNovedadReport = () => {
   return (
-    <div className='w-full h-full p-20'>
+    <div className='w-full h-full p-10'>
       <div className="formTitle mb-12 flex items-center gap-5">
       <svg
         xmlns="http://www.w3.org/2000/svg"
