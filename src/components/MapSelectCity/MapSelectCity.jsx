@@ -190,12 +190,14 @@ const MapSelectCity = ({filterMap, departamento, municipio, getColorByCarencias 
 
   const formateMunicipioName = municipio.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
 
+  const formateLinkMunicipioName = municipio.split(' ').map(word => word.charAt(0).toLowerCase() + word.slice(1)).join('-')
 
+  console.log(formateLinkMunicipioName)
 
   return (
     <div className={`w-full h-full`} id='mapCitySelect'>
       {SelectedMapComponent ? (
-        <SelectedMapComponent filterMap={filterMap} departamento={departamento} municipio={formateMunicipioName} getColorByCarencias={getColorByCarencias}/>
+        <SelectedMapComponent filterMap={filterMap} departamento={departamento} municipioLink={formateLinkMunicipioName} municipio={formateMunicipioName} getColorByCarencias={getColorByCarencias}/>
       ) : (
         <p>Mapa no encontrado</p>
       )}

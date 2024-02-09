@@ -4,8 +4,10 @@ import { Tooltip } from 'react-tooltip'
 import '../../../App.sass'
 import UseCarenciasPorVereda from '../../UseCarenciasPorVereda/UseCarenciasPorVereda'
 
-const JesusMaria = ({departamento, municipio, filterMap}) => {
+const JesusMaria = ({departamento, municipio, filterMap, municipioLink}) => {
   const navigate = useNavigate();
+
+  console.log(municipio)
 
   //esta función es la que asigna el color según la cantidad de carencias que tiene la vereda o el barrio
   const { getColorByCarencias } = UseCarenciasPorVereda(filterMap.toUpperCase());
@@ -20,7 +22,7 @@ const JesusMaria = ({departamento, municipio, filterMap}) => {
     }
 
     if (nombreVeredaBarrioUrl) {
-      navigate(`/departamento/${departamento}/municipio/${municipio}/vereda/${nombreVeredaBarrioUrl}`);
+      navigate(`/departamento/${departamento}/municipio/${municipioLink}/vereda/${nombreVeredaBarrioUrl}`);
     } else {
       console.error('No se ha proporcionado el nombre de la ciudad.');
     }

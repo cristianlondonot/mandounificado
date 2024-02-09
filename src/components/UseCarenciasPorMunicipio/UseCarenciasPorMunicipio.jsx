@@ -13,7 +13,7 @@ const UseCarenciasPorMunicipio = ( tipoCarencia ) => {
         let filteredData = data;
   
         if (tipoCarencia && tipoCarencia !== 'DEFAULT') {
-          filteredData = data.filter(item => item.FACTOR_SIMPLIFICADO === tipoCarencia);
+          filteredData = data.filter(item => item.DATA_FILTER === tipoCarencia);
         }
   
         const countByMunicipio = filteredData.reduce((count, item) => {

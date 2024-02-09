@@ -30,7 +30,7 @@ const Vereda = () => {
     <>
       {/* <div className="p-2 w-full filterDpto pt-[288.5px] lg:pt-[168.5px]"> */}
     
-      <div className="drawer lg:drawer-open pt-[72.5px] lg:pt-[82.5px]">
+      <div className="drawer lg:drawer-open vereda pt-[72.5px] lg:pt-[82.5px]">
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content relative ">
           <div className="p-2 w-full lg:flex">
@@ -38,7 +38,7 @@ const Vereda = () => {
           </div>
     
           
-          <div className="p-0 w-full flex justify-between gap-5">
+          <div className="p-0 w-full block lg:flex justify-between gap-5">
             <div>
               <div className="px-3 pb-0 pt-0 w-full">
                 <BreadcrumbsMaps departamento={departamento} municipio={municipio}  vereda={formatVeredaBarrio}/>
@@ -46,7 +46,7 @@ const Vereda = () => {
               <div className='title mb-5 w-full px-3 py-2'>
                 <h2 className='text-3xl font-semibold'>Factor detallado de inestabilidad: <span className={`text-green-50 px-2 py-1 rounded bg-green-800 text-2xl`}> {formatVeredaBarrio} </span></h2>
               </div>
-              <div className="w-full ">
+              <div className="map w-full ">
                 <MapSelectNeighborhood 
                   municipio={municipio}
                   vereda={vereda} 
@@ -55,7 +55,7 @@ const Vereda = () => {
                 />
               </div>
             </div>
-            <div className="p-2 max-w-[310px] w-full h-full content-infoCity">
+            <div className="p-2 m-auto lg:m-0 max-w-[310px] w-full h-full content-infoCity">
               <InfoCity municipio={municipio}/>
             </div>
             
