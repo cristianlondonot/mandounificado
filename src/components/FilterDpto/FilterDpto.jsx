@@ -83,7 +83,7 @@ const FilterDpto = ({ selectedDepartamentoProp }) => {
 
 
   return (
-    <div className="filters md:flex gap-4 mb-5 w-full text-green-dark">
+    <div className="filters md:flex gap-4 mb-5 w-full text-green-dark bg-white">
       <div className="selectGroup w-full">
         <div className="title">
           <h5 className="text-lg font-semibold">Departamento</h5>
@@ -109,11 +109,11 @@ const FilterDpto = ({ selectedDepartamentoProp }) => {
           className="select select-bordered select-sm w-full max-w-md"
           
           onChange={handleMunicipioChange}
-          value={municipioFormateada ? municipioFormateada : ''} 
+          value={municipioFormateada.toLowerCase() ? municipioFormateada.toLowerCase() : ''} 
         >
           <option value="">Seleccione un municipio</option>
           {municipiosUnicos.map((municipio, index) => (
-            <option key={index} value={municipio.value}>
+            <option key={index} value={municipio.value.toLowerCase()}>
               {municipio.label.charAt(0).toUpperCase() + municipio.label.slice(1)}
             </option>
           ))}
@@ -137,6 +137,7 @@ const FilterDpto = ({ selectedDepartamentoProp }) => {
           ))}
         </select>
       </div>
+      
     </div>
   );
 };
