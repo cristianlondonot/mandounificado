@@ -45,6 +45,12 @@ const SanVicenteDeChucuri = ({departamento, municipio, filterMap}) => {
         xmlSpace="preserve"
       >
         <polygon
+          fill='#636363'
+          // fill={getColorByCarencias('VERDIN')}
+          data-tooltip-id="my-tooltip" 
+          data-tooltip-content="Verdin"
+          onClick={handleNeighborhoodClick} 
+          data-url-name="verdin"
           className="st0"
           points="248.6,655.5 249.8,654.2 251.2,654.2 251.2,655.5 "
         />
