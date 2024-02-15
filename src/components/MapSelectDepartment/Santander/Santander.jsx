@@ -34,9 +34,6 @@ const Santander = ({departamento, filterMap}) => {
       console.error('No se ha proporcionado el nombre de la ciudad.');
     }
   };
-
-
-
   
   return (
     <div className={ `w-full h-full relative `} id='mapDpto'>

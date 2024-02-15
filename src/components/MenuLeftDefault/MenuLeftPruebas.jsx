@@ -26,7 +26,7 @@ const MenuLeftPruebas = ({onBotonPresionadoChange}) => {
             <li>
               <label 
                 htmlFor="justiciayderecho" 
-                className={`label cursor-pointer btn btn-sm bg-green-800 text-slate-50 hover:bg-green-600 ${estadoBoton === 'seguridad' ? 'activo' : ''}`}
+                className={`label cursor-pointer btn btn-sm bg-green-800 text-slate-50 hover:bg-green-600 ${estadoBoton === 'justicia y derecho' ? 'activo' : ''}`}
               >
                 <svg
                   id="uuid-ce3ac38b-8b1b-4050-80c1-b035ec52f10a"
@@ -51,7 +51,7 @@ const MenuLeftPruebas = ({onBotonPresionadoChange}) => {
                   />
                 </svg>
                 Justicia y derecho 
-                <input type='checkbox' id='justiciayderecho' className=' checkbox checkbox-xs' onChange={() => handleBotonClick('seguridad')} />
+                <input type='checkbox' id='justiciayderecho' className=' checkbox checkbox-xs' onChange={() => handleBotonClick('justicia y derecho')} />
               </label>
               {/* <ul>
                 <li className='text-xs'><span className='pointer-events-none'><div className='w-5 rounded-sm h-3 block bg-green-600'></div>Frente Edgar Madrid Benjumea de las AGC</span></li>
@@ -67,8 +67,8 @@ const MenuLeftPruebas = ({onBotonPresionadoChange}) => {
                 <li className='text-xs'><span className='pointer-events-none'><div className='w-5 rounded-sm h-3 block bg-yellow-600'></div>Violencia Intrafamiliar</span></li>
               </ul> */}
               <label 
-                htmlFor="socialycultural" 
-                className={`label cursor-pointer btn btn-sm bg-green-800 text-slate-50 hover:bg-green-600 ${estadoBoton === 'social y cultural' ? 'activo' : ''}`}
+                htmlFor="saludyproteccionsocial" 
+                className={`label cursor-pointer btn btn-sm bg-green-800 text-slate-50 hover:bg-green-600 ${estadoBoton === 'salud y proteccion social' ? 'activo' : ''}`}
               >
                 <svg
                   id="uuid-28626ea7-ed02-4f97-b8a9-dd8b592f63c3"
@@ -93,7 +93,7 @@ const MenuLeftPruebas = ({onBotonPresionadoChange}) => {
                   />
                 </svg>
                 Salud y Protección Social
-                <input type='checkbox' id='socialycultural' className=' checkbox checkbox-xs' onChange={() => handleBotonClick('social y cultural')} />
+                <input type='checkbox' id='saludyproteccionsocial' className=' checkbox checkbox-xs' onChange={() => handleBotonClick('salud y proteccion social')} />
               </label>
               {/* <ul>
                 <li className='text-xs'><span className='pointer-events-none'><div className='w-5 rounded-sm h-3 block bg-orange-600'></div>Baja cobertura en salud</span></li>
@@ -101,8 +101,8 @@ const MenuLeftPruebas = ({onBotonPresionadoChange}) => {
                 <li className='text-xs'><span className='pointer-events-none'><div className='w-5 rounded-sm h-3 block bg-orange-600'></div>Mantenimiento de puestos de salud</span></li>
               </ul> */}
               <label 
-                htmlFor="politicoinstitucional" 
-                className={`label cursor-pointer btn btn-sm bg-green-800 text-slate-50 hover:bg-green-600 ${estadoBoton === 'politico institucional' ? 'activo' : ''}`}
+                htmlFor="educacion" 
+                className={`label cursor-pointer btn btn-sm bg-green-800 text-slate-50 hover:bg-green-600 ${estadoBoton === 'educacion' ? 'activo' : ''}`}
               >
                 <svg
                   id="uuid-7ab846ae-60ea-404a-9aba-8de9c646d939"
@@ -127,7 +127,7 @@ const MenuLeftPruebas = ({onBotonPresionadoChange}) => {
                   />
                 </svg>
                 Educación
-                <input type='checkbox' id='politicoinstitucional' className=' checkbox checkbox-xs' onChange={() => handleBotonClick('politico institucional')} />
+                <input type='checkbox' id='educacion' className=' checkbox checkbox-xs' onChange={() => handleBotonClick('educacion')} />
               </label>
               {/* <ul>
                 <li className='text-xs'><span className='pointer-events-none'><div className='w-5 rounded-sm h-3 block bg-red-600'></div>Deserción ESCOLAR</span></li>
@@ -136,8 +136,8 @@ const MenuLeftPruebas = ({onBotonPresionadoChange}) => {
                 <li className='text-xs'><span className='pointer-events-none'><div className='w-5 rounded-sm h-3 block bg-green-600'></div>Mantenimiento de escuelas</span></li>
               </ul> */}
               <label 
-                htmlFor="infraestructura" 
-                className={`label cursor-pointer btn btn-sm bg-green-800 text-slate-50 hover:bg-green-600 ${estadoBoton === 'infraestructura' ? 'activo' : ''}`}
+                htmlFor="trabajo" 
+                className={`label cursor-pointer btn btn-sm bg-green-800 text-slate-50 hover:bg-green-600 ${estadoBoton === 'trabajo' ? 'activo' : ''}`}
               >
                 <svg
                   id="uuid-341112c4-a185-422f-a1a3-dd700cbd6b3d"
@@ -162,7 +162,7 @@ const MenuLeftPruebas = ({onBotonPresionadoChange}) => {
                   />
                 </svg>
                 Trabajo
-                <input type='checkbox' id='infraestructura' className=' checkbox checkbox-xs' onChange={() => handleBotonClick('infraestructura')} />
+                <input type='checkbox' id='trabajo' className=' checkbox checkbox-xs' onChange={() => handleBotonClick('trabajo')} />
               </label>
               
               {/* <ul>
@@ -170,8 +170,8 @@ const MenuLeftPruebas = ({onBotonPresionadoChange}) => {
                 <li className='text-xs'><span className='pointer-events-none'><div className='w-5 rounded-sm h-3 block bg-green-600'></div>Desempleo</span></li>
               </ul> */}
               <label 
-                htmlFor="ambiental" 
-                className={`label cursor-pointer btn btn-sm bg-green-800 text-slate-50 hover:bg-green-600 ${estadoBoton === 'ambiental' ? 'activo' : ''}`}
+                htmlFor="viviendaciudadyterritorio" 
+                className={`label cursor-pointer btn btn-sm bg-green-800 text-slate-50 hover:bg-green-600 ${estadoBoton === 'vivienda ciudad y territorio' ? 'activo' : ''}`}
               >
                 <svg
                   id="uuid-17ff8f76-e0df-48b1-9b83-c4a79d2d5e78"
@@ -191,15 +191,15 @@ const MenuLeftPruebas = ({onBotonPresionadoChange}) => {
                   />
                 </svg>
                 Vivienda, ciudad y Territorio
-                <input type='checkbox' id='ambiental' className=' checkbox checkbox-xs' onChange={() => handleBotonClick('ambiental')} />
+                <input type='checkbox' id='viviendaciudadyterritorio' className=' checkbox checkbox-xs' onChange={() => handleBotonClick('vivienda ciudad y territorio')} />
               </label>
               
               {/* <ul>
                 <li className='text-xs'><span className='pointer-events-none'><div className='w-5 rounded-sm h-3 block bg-orange-600'></div>Baja cobertura agua potable</span></li>
               </ul>  */}
               <label 
-                htmlFor="socialycultural2" 
-                className={`label cursor-pointer btn btn-sm bg-green-800 text-slate-50 hover:bg-green-600 ${estadoBoton === 'social y cultural' ? 'activo' : ''}`}
+                htmlFor="deporteyrecreacion" 
+                className={`label cursor-pointer btn btn-sm bg-green-800 text-slate-50 hover:bg-green-600 ${estadoBoton === 'deporte y recreacion' ? 'activo' : ''}`}
               >
                 <svg
                   id="uuid-8ba50eed-530b-4d18-a774-2d352aab1e06"
@@ -239,15 +239,15 @@ const MenuLeftPruebas = ({onBotonPresionadoChange}) => {
                   />
                 </svg>
                 Deporte y recreación
-                <input type='checkbox' id='socialycultural2' className=' checkbox checkbox-xs' onChange={() => handleBotonClick('social y cultural')} />
+                <input type='checkbox' id='deporteyrecreacion' className=' checkbox checkbox-xs' onChange={() => handleBotonClick('deporte y recreacion')} />
               </label>
               
               {/* <ul>
                 <li className='text-xs'><span className='pointer-events-none'><div className='w-5 rounded-sm h-3 block bg-green-600'></div>Bajo número de escuelas deportivas</span></li>
               </ul> */}
               <label 
-                htmlFor="politicoinstitucional2" 
-                className={`label cursor-pointer btn btn-sm bg-green-800 text-slate-50 hover:bg-green-600 ${estadoBoton === 'politico institucional' ? 'activo' : ''}`}
+                htmlFor="gobiernoterritorial" 
+                className={`label cursor-pointer btn btn-sm bg-green-800 text-slate-50 hover:bg-green-600 ${estadoBoton === 'gobierno territorial' ? 'activo' : ''}`}
               >
                 <svg
                   id="uuid-9e1d6237-dd1b-45a8-b892-0a2c935a8412"
@@ -347,7 +347,7 @@ const MenuLeftPruebas = ({onBotonPresionadoChange}) => {
                   />
                 </svg>
                 Gobierno Territorial
-                <input type='checkbox' id='politicoinstitucional2' className=' checkbox checkbox-xs' onChange={() => handleBotonClick('politico institucional')} />
+                <input type='checkbox' id='gobiernoterritorial' className=' checkbox checkbox-xs' onChange={() => handleBotonClick('gobierno territorial')} />
               </label>
               
               {/* <ul>
@@ -370,8 +370,8 @@ const MenuLeftPruebas = ({onBotonPresionadoChange}) => {
           <ul className="menu bg-base-200 w-full rounded-box">
             <li>
               <label 
-                htmlFor="justiciayderecho" 
-                className={`label cursor-pointer btn btn-sm bg-green-800 text-slate-50 hover:bg-green-600 ${estadoBoton === 'seguridad' ? 'activo' : ''}`}
+                htmlFor="informacionestadistica" 
+                className={`label cursor-pointer btn btn-sm bg-green-800 text-slate-50 hover:bg-green-600 ${estadoBoton === 'informacion estadistica' ? 'activo' : ''}`}
               >
                 <svg
                   id="uuid-e3048c52-c9d7-4567-9870-28b8731fea3d"
@@ -421,7 +421,7 @@ const MenuLeftPruebas = ({onBotonPresionadoChange}) => {
                   />
                 </svg>
                 Información estadistica
-                <input type='checkbox' id='justiciayderecho' className=' checkbox checkbox-xs' onChange={() => handleBotonClick('seguridad')} />
+                <input type='checkbox' id='informacionestadistica' className=' checkbox checkbox-xs' onChange={() => handleBotonClick('informacion estadistica')} />
               </label>
               {/* <ul>
                 <li className='text-xs'><a><div className='w-5 rounded-sm h-3 block bg-green-600'></div> Pobreza Extrema</a></li>
@@ -433,8 +433,8 @@ const MenuLeftPruebas = ({onBotonPresionadoChange}) => {
                 <li className='text-xs'><a><div className='w-5 rounded-sm h-3 block bg-red-600'></div> Mantenimiento de Placa Huella</a></li>
               </ul> */}
               <label 
-                htmlFor="justiciayderecho" 
-                className={`label cursor-pointer btn btn-sm bg-green-800 text-slate-50 hover:bg-green-600 ${estadoBoton === 'seguridad' ? 'activo' : ''}`}
+                htmlFor="cultura" 
+                className={`label cursor-pointer btn btn-sm bg-green-800 text-slate-50 hover:bg-green-600 ${estadoBoton === 'cultura' ? 'activo' : ''}`}
               >
                 <svg
                   id="uuid-ed3989dd-07e2-4a2d-81d1-7021463db376"
@@ -484,15 +484,15 @@ const MenuLeftPruebas = ({onBotonPresionadoChange}) => {
                   />
                 </svg>
                 Cultura
-                <input type='checkbox' id='justiciayderecho' className=' checkbox checkbox-xs' onChange={() => handleBotonClick('seguridad')} />
+                <input type='checkbox' id='cultura' className=' checkbox checkbox-xs' onChange={() => handleBotonClick('cultura')} />
               </label>
               {/* <ul>
                 <li className='text-xs'><a><div className='w-5 rounded-sm h-3 block bg-yellow-600'></div> Baja o inexistencia de escuelas de arte y musica</a></li>
                 <li className='text-xs'><a><div className='w-5 rounded-sm h-3 block bg-orange-600'></div> Deficiencia en el patrimonio cultural</a></li>
               </ul> */}
               <label 
-                htmlFor="justiciayderecho" 
-                className={`label cursor-pointer btn btn-sm bg-green-800 text-slate-50 hover:bg-green-600 ${estadoBoton === 'seguridad' ? 'activo' : ''}`}
+                htmlFor="tecnologiasdelainformacion" 
+                className={`label cursor-pointer btn btn-sm bg-green-800 text-slate-50 hover:bg-green-600 ${estadoBoton === 'tecnologias de la informacion' ? 'activo' : ''}`}
               >
                 <svg
                   id="uuid-8c641bd9-7632-4522-ba22-a104e5fce9f1"
@@ -527,15 +527,15 @@ const MenuLeftPruebas = ({onBotonPresionadoChange}) => {
                   />
                 </svg>
                 Tecnologias de la información
-                <input type='checkbox' id='justiciayderecho' className=' checkbox checkbox-xs' onChange={() => handleBotonClick('seguridad')} />
+                <input type='checkbox' id='tecnologiasdelainformacion' className=' checkbox checkbox-xs' onChange={() => handleBotonClick('tecnologias de la informacion')} />
               </label>
               {/* <ul>
                 <li className='text-xs'><a><div className='w-5 rounded-sm h-3 block bg-green-600'></div> Falta de telefonia celular</a></li>
                 <li className='text-xs'><a><div className='w-5 rounded-sm h-3 block bg-yellow-600'></div> Falta conexión internet</a></li>
               </ul> */}
               <label 
-                htmlFor="justiciayderecho" 
-                className={`label cursor-pointer btn btn-sm bg-green-800 text-slate-50 hover:bg-green-600 ${estadoBoton === 'seguridad' ? 'activo' : ''}`}
+                htmlFor="comercioindustriayturismo" 
+                className={`label cursor-pointer btn btn-sm bg-green-800 text-slate-50 hover:bg-green-600 ${estadoBoton === 'comercio industria y turismo' ? 'activo' : ''}`}
               >
                 <svg
                   id="uuid-9629263d-a14c-497b-be31-14c31ec14a8f"
@@ -550,7 +550,7 @@ const MenuLeftPruebas = ({onBotonPresionadoChange}) => {
                   />
                 </svg>
                 Comercio, Industria y Turismo
-                <input type='checkbox' id='justiciayderecho' className=' checkbox checkbox-xs' onChange={() => handleBotonClick('seguridad')} />
+                <input type='checkbox' id='comercioindustriayturismo' className=' checkbox checkbox-xs' onChange={() => handleBotonClick('comercio industria y turismo')} />
               </label>
               {/* <ul>
                 <li className='text-xs'><a><div className='w-5 rounded-sm h-3 block bg-green-600'></div> Bajo valor agregado a productos</a></li>
@@ -570,8 +570,8 @@ const MenuLeftPruebas = ({onBotonPresionadoChange}) => {
           <ul className="menu bg-base-200 w-full rounded-box">
             <li>
               <label 
-                htmlFor="justiciayderecho" 
-                className={`label cursor-pointer btn btn-sm bg-green-800 text-slate-50 hover:bg-green-600 ${estadoBoton === 'seguridad' ? 'activo' : ''}`}
+                htmlFor="agriculturaydesarrollorural" 
+                className={`label cursor-pointer btn btn-sm bg-green-800 text-slate-50 hover:bg-green-600 ${estadoBoton === 'agricultura y desarrollo rural' ? 'activo' : ''}`}
               >
                 <svg
                   id="uuid-531b7001-9456-4a7c-afc2-93cc8be7092d"
@@ -591,15 +591,15 @@ const MenuLeftPruebas = ({onBotonPresionadoChange}) => {
                   />
                 </svg>
                 Agricultura y Desarrollo Rural
-                <input type='checkbox' id='justiciayderecho' className=' checkbox checkbox-xs' onChange={() => handleBotonClick('seguridad')} />
+                <input type='checkbox' id='agriculturaydesarrollorural' className=' checkbox checkbox-xs' onChange={() => handleBotonClick('agricultura y desarrollo rural')} />
               </label>
               {/* <ul>
                 <li className='text-xs'><a><div className='w-5 rounded-sm h-3 block bg-yellow-600'></div> Ampliacion de portafolio productivo</a></li>
                 <li className='text-xs'><a><div className='w-5 rounded-sm h-3 block bg-orange-600'></div> Prácticas agroindustriales deficientes</a></li>
               </ul> */}
               <label 
-                htmlFor="justiciayderecho" 
-                className={`label cursor-pointer btn btn-sm bg-green-800 text-slate-50 hover:bg-green-600 ${estadoBoton === 'seguridad' ? 'activo' : ''}`}
+                htmlFor="minasyenergias" 
+                className={`label cursor-pointer btn btn-sm bg-green-800 text-slate-50 hover:bg-green-600 ${estadoBoton === 'minas y energia' ? 'activo' : ''}`}
               >
                 <svg
                   id="uuid-1e7165ab-33d8-4d96-befb-eeb131c445d4"
@@ -629,14 +629,14 @@ const MenuLeftPruebas = ({onBotonPresionadoChange}) => {
                   />
                 </svg>
                 Minas y Energía
-                <input type='checkbox' id='justiciayderecho' className=' checkbox checkbox-xs' onChange={() => handleBotonClick('seguridad')} />
+                <input type='checkbox' id='minasyenergias' className=' checkbox checkbox-xs' onChange={() => handleBotonClick('minas y energia')} />
               </label>
               {/* <ul>
                 <li className='text-xs'><a><div className='w-5 rounded-sm h-3 block bg-green-600'></div>Inadecuadas practicas mineras</a></li>
               </ul> */}
               <label 
-                htmlFor="justiciayderecho" 
-                className={`label cursor-pointer btn btn-sm bg-green-800 text-slate-50 hover:bg-green-600 ${estadoBoton === 'seguridad' ? 'activo' : ''}`}
+                htmlFor="ambienteydesarrollosostenible" 
+                className={`label cursor-pointer btn btn-sm bg-green-800 text-slate-50 hover:bg-green-600 ${estadoBoton === 'ambiente y desarrollo sostenible' ? 'activo' : ''}`}
               >
                 <svg
                   id="uuid-df8c38f2-efdc-444c-be85-4c01eeb87b5a"
@@ -691,7 +691,7 @@ const MenuLeftPruebas = ({onBotonPresionadoChange}) => {
                   />
                 </svg>
                 Ambiente y Desarrollo Sostenible
-                <input type='checkbox' id='justiciayderecho' className=' checkbox checkbox-xs' onChange={() => handleBotonClick('seguridad')} />
+                <input type='checkbox' id='ambienteydesarrollosostenible' className=' checkbox checkbox-xs' onChange={() => handleBotonClick('ambiente y desarrollo sostenible')} />
               </label>
               {/* <ul>
                 <li className='text-xs'><a><div className='w-5 rounded-sm h-3 block bg-green-600'></div> Deforestación</a></li>

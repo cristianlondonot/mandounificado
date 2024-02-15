@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 const UseCarenciasPorVereda = ( tipoCarencia ) => {
   const [carenciasPorVeredaBarrio, setCarenciasPorVeredaBarrio] = useState([]);
 
-  //console.log(tipoCarencia)
+  console.log(tipoCarencia)
   
   useEffect(() => {
     fetch('https://raw.githubusercontent.com/cristianlondonot/mandounificado-spidersoft/main/data-factor.json')
@@ -12,7 +12,7 @@ const UseCarenciasPorVereda = ( tipoCarencia ) => {
         let filteredData = data;
 
         if (tipoCarencia && tipoCarencia !== 'DEFAULT') {
-          filteredData = data.filter(item => item.FACTOR_SIMPLIFICADO === tipoCarencia);
+          filteredData = data.filter(item => item.DATA_FILTER === tipoCarencia);
         }
 
         const countByVeredaBarrio = filteredData.reduce((count, item) => {

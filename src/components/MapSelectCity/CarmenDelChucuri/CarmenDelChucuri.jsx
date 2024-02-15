@@ -4,7 +4,7 @@ import { Tooltip } from 'react-tooltip'
 import '../../../App.sass'
 import UseCarenciasPorVereda from '../../UseCarenciasPorVereda/UseCarenciasPorVereda'
 
-const CarmenDelChucuri = ({departamento, municipio, filterMap}) => {
+const CarmenDelChucuri = ({departamento, municipio, filterMap, municipioLink}) => {
 
   const navigate = useNavigate();
 
@@ -21,7 +21,7 @@ const CarmenDelChucuri = ({departamento, municipio, filterMap}) => {
     }
 
     if (nombreVeredaBarrioUrl) {
-      navigate(`/departamento/${departamento}/municipio/${municipio}/vereda/${nombreVeredaBarrioUrl}`);
+      navigate(`/departamento/${departamento}/municipio/${municipioLink}/vereda/${nombreVeredaBarrioUrl}`);
     } else {
       console.error('No se ha proporcionado el nombre de la ciudad.');
     }

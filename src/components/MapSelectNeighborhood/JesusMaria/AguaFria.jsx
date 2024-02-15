@@ -3,6 +3,7 @@ import UseCarenciasPorVereda from '../../UseCarenciasPorVereda/UseCarenciasPorVe
 
 const AguaFria = ({municipio, filterMap}) => {
   const { getColorByCarencias } = UseCarenciasPorVereda(filterMap.toUpperCase());
+  console.log(municipio)
   return (
     <div>
       <svg
