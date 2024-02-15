@@ -1,1 +1,0 @@
-import{U as s,j as r}from"./index-5a958917.js";const n=({municipio:a,filterMap:e})=>(s(e.toUpperCase()),r.jsx("div",{children:"Penas"}));export{n as default};
