@@ -36,15 +36,19 @@ const Vereda = () => {
           <div className="p-2 w-full lg:flex">
             <FilterDpto />
           </div>
+          <div className="px-3 pb-0 pt-0 w-full">
+            <BreadcrumbsMaps municipio={municipio} departamento={departamento} vereda={''}/>
+          </div>
+          
     
           
-          <div className="p-0 w-full block lg:flex justify-between gap-5">
+          <div className="p-0 w-full">
             <div>
-              <div className="px-3 pb-0 pt-0 w-full">
-                <BreadcrumbsMaps departamento={departamento} municipio={municipio}  vereda={formatVeredaBarrio}/>
-              </div>
               <div className='title mb-5 w-full px-3 py-2'>
                 <h2 className='text-3xl font-semibold'>Factor detallado de inestabilidad: <span className={`text-green-50 px-2 py-1 rounded bg-green-800 text-2xl`}> {formatVeredaBarrio} </span></h2>
+              </div>
+              <div className="py-3 w-full pe-2">
+                <InfoCity municipio={municipio}/>
               </div>
               <div className="map w-full ">
                 <MapSelectNeighborhood 
@@ -54,9 +58,6 @@ const Vereda = () => {
                   filterMap={botonPresionado}
                 />
               </div>
-            </div>
-            <div className="p-2 m-auto lg:m-0 max-w-[310px] w-full h-full content-infoCity">
-              <InfoCity municipio={municipio}/>
             </div>
             
           </div>

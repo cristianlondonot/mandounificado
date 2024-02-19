@@ -135,20 +135,11 @@ const InfoCity = () => {
   };
 
   return (
-    <div className={`${!municipio ? 'hidden' : ''} infoCity`}>
-      <div className="stats stats-vertical shadow blur-sm">
-        <div className="stat">
-          <div className="stat-title">Habitantes</div>
-          <div className="stat-value">
-            <div className="estado">
-              <div className={`estado-alert text-start`}>
-                <span className='font-sm text-medium text-slate-90 w-full'>{habitantesEnMunicipio()}</span>
-              </div>
-            </div>
-          </div>
-          <div className="stat-desc mt-1">{habitantesEnMunicipio()} habitantes en {municipioFormateado} </div>
-        </div>
-        
+    <div className='infoCity'>
+      
+
+      <div className="stats stats-vertical lg:stats-horizontal shadow">
+
         <div className="stat">
           <div className="stat-title">Alcalde</div>
           <span className="font-bold text-2xl mb-1">{nombreAlcaldeDatosMunicipio()}</span>
@@ -156,58 +147,41 @@ const InfoCity = () => {
         </div>
         
         <div className="stat">
-          <div className="stat-title">Info Poblacional</div>
-          <div className="overflow-x-auto">
-            <table className="table table-zebra">
-              {/* head */}
-              <thead>
-                <tr>
-                  <th>Dato</th>
-                  <th>Cantidad</th>
-                </tr>
-              </thead>
-              <tbody>
-                {/* row 1 */}
-                <tr>
-                  <td>Población Urbana</td>
-                  <td>{poblacionUrbanaMunicipio()}</td>
-                </tr>
-                {/* row 2 */}
-                <tr>
-                  <td>Población Rural</td>
-                  <td>{poblacionRuralMunicipio()}</td>
-                </tr>
-                {/* row 3 */}
-                <tr>
-                  <td>Primera Infancia <span className='text-xs text-gray-500'>(0 a 5)</span> </td>
-                  <td>{poblacionPrimeraInfanciaMunicipio()}</td>
-                </tr>
-                <tr>
-                  <td>Infancia <span className='text-xs text-gray-500'>(5 a 11)</span></td>
-                  <td>{poblacionInfanciaMunicipio()}</td>
-                </tr>
-                <tr>
-                  <td>Adolecencia <span className='text-xs text-gray-500'>(12 a 17)</span> </td>
-                  <td>{poblacionAdolecenciaMunicipio()}</td>
-                </tr>
-                <tr>
-                  <td>Joven <span className='text-xs text-gray-500'>(18 a 28)</span> </td>
-                  <td>{poblacionJovenMunicipio()}</td>
-                </tr>
-                <tr>
-                  <td>Matriculados</td>
-                  <td>{poblacionMatriculaMunicipio()}</td>
-                </tr>
-                <tr>
-                  <td>Población PAE</td>
-                  <td>{poblacionPaeMunicipio()}</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+          <div className="stat-desc">Habitantes</div>
+          <div className="stat-title text-black font-bold">{habitantesEnMunicipio()}</div>
+          <div className="stat-desc">Población Urbana</div>
+          <div className="stat-title text-black font-bold">{poblacionUrbanaMunicipio()}</div>
+        </div>
+
+        <div className="stat">
+          <div className="stat-desc">Población Rural</div>
+          <div className="stat-title text-black font-bold">{poblacionRuralMunicipio()}</div>
+          <div className="stat-desc">Primera Infancia</div>
+          <div className="stat-title text-black font-bold">{poblacionPrimeraInfanciaMunicipio()}</div>
+        </div>
+
+        <div className="stat">
+          <div className="stat-desc">Infancia</div>
+          <div className="stat-title text-black font-bold">{poblacionInfanciaMunicipio()}</div>
+          <div className="stat-desc">Adolecencia</div>
+          <div className="stat-title text-black font-bold">{poblacionAdolecenciaMunicipio()}</div>
+        </div>
+
+        <div className="stat">
+          <div className="stat-desc">Joven</div>
+          <div className="stat-title text-black font-bold">{poblacionJovenMunicipio()}</div>
+          <div className="stat-desc">Matriculados</div>
+          <div className="stat-title text-black font-bold">{poblacionMatriculaMunicipio()}</div>
+        </div>
+        
+        <div className="stat">
+          <div className="stat-desc">Población PAE</div>
+          <div className="stat-title text-black font-bold">{poblacionPaeMunicipio()}</div>
+          {/* <div className="stat-desc">↘︎ 90 (14%)</div> */}
         </div>
         
       </div>
+      
     </div>
   )
 }

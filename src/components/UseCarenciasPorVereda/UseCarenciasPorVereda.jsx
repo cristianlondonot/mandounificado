@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 const UseCarenciasPorVereda = ( tipoCarencia ) => {
   const [carenciasPorVeredaBarrio, setCarenciasPorVeredaBarrio] = useState([]);
 
-  console.log(tipoCarencia)
+  //console.log(tipoCarencia)
   
   useEffect(() => {
     fetch('https://raw.githubusercontent.com/cristianlondonot/mandounificado-spidersoft/main/data-factor.json')

@@ -54,7 +54,7 @@ import Molagavita from './Molagavita/Molagavita';
 import Ocamonte from './Ocamonte/Ocamonte';
 import Oiba from './Oiba/Oiba';
 import Onza from './Onzaga/Onzaga';
-import Palmar from './Palmar/Palmar';
+import ElPalmar from './ElPalmar/ElPalmar';
 import PalmasDeSocorro from './PalmasDeSocorro/PalmasDeSocorro';
 import Paramo from './Paramo/Paramo';
 import Piedecuesta from './Piedecuesta/Piedecuesta';
@@ -72,7 +72,7 @@ import SanJoseDeMiranda from './SanJoseDeMiranda/SanJoseDeMiranda';
 import SanMiguel from './SanMiguel/SanMiguel';
 import SantaBarbara from './SantaBarbara/SantaBarbara';
 import SantaHelenaDelOpon from './SantaHelenaDelOpon/SantaHelenaDelOpon';
-import SanVicenteDeChucuri from './SanVicenteDeChucuri/SanVicenteDeChucuri';
+import SanVicenteDelChucuri from './SanVicenteDelChucuri/SanVicenteDelChucuri';
 import Simacota from './Simacota/Simacota';
 import Socorro from './Socorro/Socorro';
 import Suaita from './Suaita/Suaita';
@@ -146,7 +146,7 @@ const mapComponents = {
   ocamonte: Ocamonte,
   oiba: Oiba,
   onzaga: Onza,
-  palmar: Palmar,
+  'el-palmar': ElPalmar,
   'palmas-de-socorro': PalmasDeSocorro,
   paramo: Paramo,
   piedecuesta: Piedecuesta,
@@ -164,7 +164,7 @@ const mapComponents = {
   'san-miguel': SanMiguel,
   'santa-barbara': SantaBarbara,
   'santa-helena-del-opon': SantaHelenaDelOpon,
-  'san-vicente-de-chucuri': SanVicenteDeChucuri,
+  'san-vicente-del-chucuri': SanVicenteDelChucuri,
   simacota: Simacota,
   socorro: Socorro,
   suaita: Suaita,
@@ -192,7 +192,7 @@ const MapSelectCity = ({filterMap, departamento, municipio, getColorByCarencias 
 
   const formateLinkMunicipioName = municipio.split(' ').map(word => word.charAt(0).toLowerCase() + word.slice(1)).join('-')
 
-  console.log(formateLinkMunicipioName)
+  //console.log(formateLinkMunicipioName)
 
   return (
     <div className={`w-full h-full`} id='mapCitySelect'>

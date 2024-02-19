@@ -38,7 +38,7 @@ const Lebrija = ({departamento, municipio, filterMap}) => {
         y="0px"
         viewBox="0 0 635.7 908.9"
         style={{
-          strokeWidth: '1px',
+          strokeWidth: '.5px',
           stroke: '#fff',
           enableBackground: "new 0 0 635.7 908.9",
         }}

@@ -39,7 +39,7 @@ const Velez = ({departamento, municipio, filterMap}) => {
         y="0px"
         viewBox="0 0 419.7 1080"
         style={{
-          strokeWidth: '2px',
+          strokeWidth: '0px',
           stroke: '#fff',
           enableBackground: "new 0 0 419.7 1080",
         }}

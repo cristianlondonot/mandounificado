@@ -43,7 +43,6 @@ const Albania = ({departamento, municipio, filterMap}) => {
           stroke: '#fff'
         }}
         xmlSpace="preserve"
-        className='max-w-[85%] h-full'
         >
           <polygon
             id="_x32_9"
