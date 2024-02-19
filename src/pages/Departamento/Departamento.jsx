@@ -6,6 +6,7 @@ import DptoState from '../../components/DptoState/DptoState';
 import UseCarenciasPorMunicipio from '../../components/UseCarenciasPorMunicipio/UseCarenciasPorMunicipio';
 import FilterDpto from '../../components/FilterDpto/FilterDpto';
 import MenuLeftPruebas from '../../components/MenuLeftDefault/MenuLeftPruebas';
+import MenuLeftSecretarias from '../../components/MenuLeftSecretarias/MenuLeftSecretarias';
 
 const Departamento = () => {
   const navigate = useNavigate();
@@ -57,6 +58,7 @@ const Departamento = () => {
             <MenuLeftPruebas 
               onBotonPresionadoChange={handleBotonPresionadoChange} 
             />
+            <MenuLeftSecretarias />
 
           </div>
           {/* <MenuLeftDefault

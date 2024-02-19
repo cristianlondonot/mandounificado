@@ -17,7 +17,7 @@ const MenuLeftPruebas = ({onBotonPresionadoChange}) => {
   return (
     <div className="join join-vertical w-full menuLeftDefault bg-white">
       <div className="collapse collapse-plus join-item border border-base-300" >
-        <input type="radio" name="my-accordion-2" defaultChecked/> 
+        <input type="checkbox" name="my-accordion-2" defaultChecked/> 
         <div className="collapse-title text-lg font-bold">
           Seguridad Multidimensional
         </div>
@@ -362,7 +362,7 @@ const MenuLeftPruebas = ({onBotonPresionadoChange}) => {
         </div>
       </div>
       <div className="collapse collapse-plus join-item border border-base-300">
-        <input type="radio" name="my-accordion-2" /> 
+        <input type="checkbox" name="my-accordion-2" /> 
         <div className="collapse-title text-lg font-bold">
           Prosperidad
         </div>
@@ -562,7 +562,7 @@ const MenuLeftPruebas = ({onBotonPresionadoChange}) => {
         </div>
       </div>
       <div className="collapse collapse-plus join-item border border-base-300">
-        <input type="radio" name="my-accordion-2" /> 
+        <input type="checkbox" name="my-accordion-2" /> 
         <div className="collapse-title text-lg font-bold">
           Sostenibilidad
         </div>

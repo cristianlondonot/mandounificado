@@ -15,10 +15,10 @@ const MapSelectNeighborhood = ({carenciaColor, municipio, vereda, filterMap }) =
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
     .join(' ')
 
-  console.log(municipioFormat)
+  //console.log(municipioFormat)
   const MapComponent = lazy(() => import(`./${municipioFormat}/${formattedVereda}.jsx`));
 
-  console.log(filterMap)
+  //console.log(filterMap)
   return (
     <div className='w-full' id='mapNeighborhoodSelect'>
       <Suspense fallback={<div>Loading...</div>}>

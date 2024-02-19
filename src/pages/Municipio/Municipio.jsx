@@ -32,19 +32,23 @@ const Municipio = () => {
       <div className="drawer municipio lg:drawer-open pt-[72.5px] lg:pt-[82.5px]">
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content relative">
-          <div className="p-2 w-full lg:flex ">
+          <div className="p-2 w-full">
             <FilterDpto />
           </div>
+          <div className="px-3 pb-0 pt-0 w-full">
+            <BreadcrumbsMaps municipio={municipio} departamento={departamento} vereda={''}/>
+          </div>
+          <div className="py-3 w-full pe-2">
+            <InfoCity municipio={municipio}/>
+          </div>
 
-          <div className="p-0 w-full block lg:flex justify-between gap-5">
+          <div className="p-0 w-full ">
             <div className='w-full'>
-              <div className="px-3 pb-0 pt-0 w-full">
-                <BreadcrumbsMaps municipio={municipio} departamento={departamento} vereda={''}/>
-              </div>
+              
               <div className="p-3 w-full hidden">
                 <CityState municipio={municipio}/>
               </div>
-              <div className="map w-full">
+              <div className="map w-full p-3">
                 <MapSelectCity 
                   departamento={departamento} 
                   municipio={municipio} 
@@ -53,9 +57,7 @@ const Municipio = () => {
                 />
               </div>
             </div>
-            <div className="p-2 m-auto lg:m-0 max-w-[310px] w-full">
-              <InfoCity municipio={municipio}/>
-            </div>
+            
           </div>
 
           <div className="p-5 w-full">
