@@ -44,7 +44,7 @@ const Aratoca = ({departamento, municipio}) => {
         <polygon
           fillRule="evenodd"
           clipRule="evenodd"
-          fill={getColorByCarencias('CANTABARA')}
+          fill={getColorByCarencias('CANTABARA', municipio.toUpperCase())}
           data-tooltip-id="my-tooltip" 
           data-tooltip-content="Cantabara"
           onClick={handleNeighborhoodClick} 
@@ -54,7 +54,7 @@ const Aratoca = ({departamento, municipio}) => {
         <polygon
           fillRule="evenodd"
           clipRule="evenodd"
-          fill={getColorByCarencias('CLAVENILLAS')}
+          fill={getColorByCarencias('CLAVENILLAS', municipio.toUpperCase())}
           data-tooltip-id="my-tooltip" 
           data-tooltip-content="Clavenillas"
           onClick={handleNeighborhoodClick} 
@@ -64,7 +64,7 @@ const Aratoca = ({departamento, municipio}) => {
         <polygon
           fillRule="evenodd"
           clipRule="evenodd"
-          fill={getColorByCarencias('SAN ANTONIO')}
+          fill={getColorByCarencias('SAN ANTONIO', municipio.toUpperCase())}
           data-tooltip-id="my-tooltip" 
           data-tooltip-content="San Antonio"
           onClick={handleNeighborhoodClick} 
@@ -74,7 +74,7 @@ const Aratoca = ({departamento, municipio}) => {
         <polygon
           fillRule="evenodd"
           clipRule="evenodd"
-          fill={getColorByCarencias('SAN PEDRO')}
+          fill={getColorByCarencias('SAN PEDRO', municipio.toUpperCase())}
           data-tooltip-id="my-tooltip" 
           data-tooltip-content="San Pedro"
           onClick={handleNeighborhoodClick} 
