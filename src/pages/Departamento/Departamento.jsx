@@ -58,7 +58,6 @@ const Departamento = () => {
             <MenuLeftPruebas 
               onBotonPresionadoChange={handleBotonPresionadoChange} 
             />
-            <MenuLeftSecretarias />
 
           </div>
           {/* <MenuLeftDefault

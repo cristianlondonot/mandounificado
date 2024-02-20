@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import './MenuLeftDefault.sass'
+import MenuLeftSecretarias from '../MenuLeftSecretarias/MenuLeftSecretarias';
 
 const MenuLeftPruebas = ({onBotonPresionadoChange}) => {
   const [estadoBoton, setEstadoBoton] = useState('default');
@@ -13,6 +14,13 @@ const MenuLeftPruebas = ({onBotonPresionadoChange}) => {
       onBotonPresionadoChange(boton);
     }
   };
+
+  Notification.requestPermission()
+    .then(permission => {
+      if (permission === 'granted'){
+        new Notification()
+      }
+    })
 
   return (
     <div className="join join-vertical w-full menuLeftDefault bg-white">
@@ -706,6 +714,7 @@ const MenuLeftPruebas = ({onBotonPresionadoChange}) => {
           </ul>
         </div>
       </div>
+      <MenuLeftSecretarias />
     </div>
   )
 }
