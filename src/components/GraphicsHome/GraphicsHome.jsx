@@ -3,6 +3,11 @@ import { Link } from 'react-router-dom'
 import './GraphicsHome.sass'
 import GobInfo from '../GobInfo/GobInfo'
 import GraphicsSocial from '../GraphicsSocial/GraphicsSocial'
+import GraphicsEconomico from '../GraphicsEconomico/GraphicsEconomico'
+import GraphicsPoliticoinstitucional from '../GraphicsPoliticoinstitucional/GraphicsPoliticoinstitucional'
+import GraphicsAmbiental from '../GraphicsAmbiental/GraphicsAmbiental'
+import GraphicsSeguridad from '../GraphicsSeguridad/GraphicsSeguridad'
+import GraphicsInfraestructura from '../GraphicsInfraestructura/GraphicsInfraestructura'
 
 const GraphicsHome = () => {
   return (
@@ -38,6 +43,21 @@ const GraphicsHome = () => {
         
       <div className="my-20">
         <GraphicsSocial />
+      </div>
+      <div className="my-20">
+        <GraphicsEconomico />
+      </div>
+      <div className="my-20">
+        <GraphicsPoliticoinstitucional />
+      </div>
+      <div className="my-20">
+        <GraphicsInfraestructura />
+      </div>
+      <div className="my-20">
+        <GraphicsAmbiental />
+      </div>
+      <div className="my-20">
+        <GraphicsSeguridad />
       </div>
     </div>
   )
